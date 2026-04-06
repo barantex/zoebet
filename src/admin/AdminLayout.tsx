@@ -6,11 +6,12 @@ const NAV = [
   { to: '/admin/settings',     label: '⚙️ Site Ayarları',  end: false },
   { to: '/admin/users',        label: '👥 Kullanıcılar',  end: false },
   { to: '/admin/finance',      label: '💰 Finans',         end: false },
-  { to: '/admin/wheel',        label: '🎡 Çark Yönetimi',   end: false },
+  { to: '/admin/wheel',        label: '🎡 Çark Yönetimi',  end: false },
   { to: '/admin/matches',      label: '⚽ Maçlar',         end: false },
   { to: '/admin/games',        label: '🎮 Oyunlar',        end: false },
   { to: '/admin/promotions',   label: '🎁 Promosyonlar',   end: false },
   { to: '/admin/banners',      label: '🖼️ Bannerlar',      end: false },
+  { to: '/admin/password',     label: '🔑 Şifre Değiştir', end: false },
 ]
 
 export function AdminLayout() {

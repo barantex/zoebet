@@ -5,12 +5,13 @@ import { AuthProvider } from './auth/AuthContext'
 import { useAuth } from './auth/AuthContext'
 import { ProtectedRoute } from './auth/ProtectedRoute'
 import { AdminLayout } from './admin/AdminLayout'
-import { AdminBannersPage, AdminDashboardPage, AdminGamesPage, AdminMatchesPage, AdminPromotionsPage } from './admin/AdminPages'
+import { AdminBannersPage, AdminGamesPage, AdminMatchesPage, AdminPromotionsPage } from './admin/AdminPages'
+import { AdminDashboardPage } from './admin/AdminDashboard'
 import { AdminUsersPage } from './admin/AdminUsers'
 import { AdminFinancePage } from './admin/AdminFinance'
-import { AdminWheelCodesPage } from './admin/AdminWheelCodes'
 import { AdminWheelPage } from './admin/AdminWheel'
 import { AdminSettingsPage } from './admin/AdminSettings'
+import { AdminPasswordPage } from './admin/AdminPassword'
 import { AdminLoginPage } from './pages/AdminLogin'
 import { ZoeFooter } from './components/ZoeFooter'
 import { ZoeHeader } from './components/ZoeHeader'
@@ -66,6 +67,7 @@ function Boot() {
         <Route path="games" element={<AdminGamesPage />} />
         <Route path="promotions" element={<AdminPromotionsPage />} />
         <Route path="banners" element={<AdminBannersPage />} />
+        <Route path="password" element={<AdminPasswordPage />} />
       </Route>
       <Route path="/backoffice" element={<Navigate to="/admin" replace />} />
 
