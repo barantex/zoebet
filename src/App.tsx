@@ -17,6 +17,7 @@ import { AdminLoginPage } from './pages/AdminLogin'
 import { ZoeFooter } from './components/ZoeFooter'
 import { ZoeHeader } from './components/ZoeHeader'
 import { ZoeSidebar } from './components/ZoeSidebar'
+import { TawkChat } from './components/TawkChat'
 import { ensureSeeded } from './lib/seed'
 import { LoginPage, RegisterPage } from './pages/AuthPages'
 import { FinancePage } from './pages/Finance'
@@ -114,6 +115,7 @@ function SiteLayout() {
           </Routes>
         </main>
         <ZoeFooter />
+        <TawkChat />
       </div>
     </div>
   )

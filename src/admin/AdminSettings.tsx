@@ -8,6 +8,7 @@ export function AdminSettingsPage() {
   const [logoUrl, setLogoUrl] = useState('')
   const [tickerItems, setTickerItems] = useState<string[]>([])
   const [newTicker, setNewTicker] = useState('')
+  const [tawkId, setTawkId] = useState('')
   const [msg, setMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -18,6 +19,7 @@ export function AdminSettingsPage() {
       if (d.site_logo_text) setLogoText(d.site_logo_text)
       if (d.site_logo_url !== undefined) setLogoUrl(d.site_logo_url || '')
       if (d.ticker_items) setTickerItems(Array.isArray(d.ticker_items) ? d.ticker_items : [])
+      if (d.tawk_id !== undefined) setTawkId(d.tawk_id || '')
     }).catch(() => {})
   }, [])
 
@@ -32,6 +34,7 @@ export function AdminSettingsPage() {
           site_logo_text: logoText,
           site_logo_url: logoUrl,
           ticker_items: tickerItems,
+          tawk_id: tawkId,
         })
       })
       setMsg('Kaydedildi — Sayfa yenilenince değişiklikler görünür')
@@ -112,7 +115,18 @@ export function AdminSettingsPage() {
         </div>
       </div>
 
-      {msg && <div style={{ fontSize: 13, color: msg.includes('Kaydedildi') ? '#86efac' : '#fca5a5', padding: '10px 14px', background: 'rgba(255,255,255,.04)', borderRadius: 8 }}>{msg}</div>}
+      {/* Tawk.to */}
+      <div className="zoe-panel" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ fontWeight: 700, color: '#f9fafb', marginBottom: 4 }}>💬 Tawk.to Canlı Destek</div>
+        <label className="zoe-field">
+          <span className="zoe-field-label">Tawk.to Property ID (örn: 69bb56ef6e8f601c36d1c0d3/1jk1sn62i)</span>
+          <input className="zoe-input" value={tawkId} onChange={e => setTawkId(e.target.value)}
+            placeholder="PROPERTY_ID/WIDGET_ID" />
+        </label>
+        <p className="zoe-muted" style={{ fontSize: 11 }}>
+          tawk.to → Administration → Channels → Chat Widget → Script içindeki embed.tawk.to/ sonrasını gir
+        </p>
+      </div>
 
       <button className="zoe-btn zoe-btn--primary" onClick={save} disabled={loading} style={{ alignSelf: 'flex-start', minWidth: 160 }}>
         {loading ? 'Kaydediliyor…' : '💾 Kaydet'}
