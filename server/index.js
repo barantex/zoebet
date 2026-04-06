@@ -25,7 +25,8 @@ app.use('/api/wheel', require('./routes/wheel'));
 const distPath = path.join(__dirname, '../dist');
 app.use(express.static(distPath));
 
-app.get('*', (req, res) => {
+// SPA fallback
+app.use((req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
