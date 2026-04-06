@@ -28,7 +28,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   if (cached) return cached
   try {
     const d = await fetchApi('/settings')
-    cached = { ...defaults, ...d }
+    cached = { ...defaults, ...d } as SiteSettings
     return cached
   } catch {
     return defaults
