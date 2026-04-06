@@ -1,0 +1,804 @@
+import type { Game } from '../lib/types'
+
+export const REMOTE_GAMES: Game[] = [
+  {
+    "id": "ext_vswaysfirest2",
+    "code": "vswaysfirest2",
+    "name": "${game.game_name}",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "${game.image_url}"
+  },
+  {
+    "id": "live_33175",
+    "code": "game_id:33175",
+    "name": "${game.game_name}",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "${game.image_url}"
+  },
+  {
+    "id": "live_24232",
+    "code": "game_id:24232",
+    "name": "500x Turkish Roulette",
+    "tag": "Live",
+    "provider": "pragmatic-bj",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/500x-Turkish-Roulette.webp"
+  },
+  {
+    "id": "ext_vs100hsandks",
+    "code": "vs100hsandks",
+    "name": "777 Rush",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs5t8goldfp.png"
+  },
+  {
+    "id": "live_14897",
+    "code": "game_id:14897",
+    "name": "777x Gold Club Auto Roulette",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/777x-Gold-Club-Auto-Roulette.webp"
+  },
+  {
+    "id": "live_29899",
+    "code": "game_id:29899",
+    "name": "777x Lotus Auto Roulette",
+    "tag": "Live",
+    "provider": "evolutionwc",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/777x-Lotus-Auto-Roulette.webp"
+  },
+  {
+    "id": "ext_vs10djneko",
+    "code": "vs10djneko",
+    "name": "Anaconda Gold",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysacnd.png"
+  },
+  {
+    "id": "live_29903",
+    "code": "game_id:29903",
+    "name": "Bac Dice",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Bac-Dice.webp"
+  },
+  {
+    "id": "live_29904",
+    "code": "game_id:29904",
+    "name": "Bac Dice Aurum",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Bac-Dice-Aurum.webp"
+  },
+  {
+    "id": "ext_vs20bhunter",
+    "code": "vs20bhunter",
+    "name": "Bee Keeper",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10beekeep.png"
+  },
+  {
+    "id": "ext_vswayswildb",
+    "code": "vswayswildb",
+    "name": "Big Bass Christmas – Frozen Lake",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10bbglxmas.png"
+  },
+  {
+    "id": "ext_vs5lckpnd",
+    "code": "vs5lckpnd",
+    "name": "Big Bass Splash 1000",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10bbsplashx.png"
+  },
+  {
+    "id": "ext_vs5t8goldfp",
+    "code": "vs5t8goldfp",
+    "name": "Bigger Barn House Bonanza",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysbbarnh.png"
+  },
+  {
+    "id": "ext_vs20frankie",
+    "code": "vs20frankie",
+    "name": "Bingo Mania",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs30bingomania.png"
+  },
+  {
+    "id": "ext_vs20olympgcl",
+    "code": "vs20olympgcl",
+    "name": "Bloody Dawn",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayswildb.png"
+  },
+  {
+    "id": "ext_vswaysbbarnh",
+    "code": "vswaysbbarnh",
+    "name": "Bounty Hunter",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20bhunter.png"
+  },
+  {
+    "id": "ext_vswaysolwfp",
+    "code": "vswaysolwfp",
+    "name": "Captain Kraken Megaways",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayschilhtwo.png"
+  },
+  {
+    "id": "live_24311",
+    "code": "game_id:24311",
+    "name": "Caramelo Sortudo - Crash Edition",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Caramelo-Sortudo---Crash-Edition.webp"
+  },
+  {
+    "id": "live_29896",
+    "code": "game_id:29896",
+    "name": "Cashybara Ski Edition",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Cashybara-Ski-Edition.webp"
+  },
+  {
+    "id": "live_14733",
+    "code": "game_id:14733",
+    "name": "Circus Jackpot",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Circus-Jackpot.webp"
+  },
+  {
+    "id": "live_14727",
+    "code": "game_id:14727",
+    "name": "Cock-a-Doodle Cash",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Cock-a-Doodle-Cash.webp"
+  },
+  {
+    "id": "live_65105",
+    "code": "game_id:65105",
+    "name": "Corrida Rica",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Corrida-Rica.webp"
+  },
+  {
+    "id": "live_20477",
+    "code": "game_id:20477",
+    "name": "Crash Fruit",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Crash-Fruit.webp"
+  },
+  {
+    "id": "live_20475",
+    "code": "game_id:20475",
+    "name": "Cricket Duel",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Cricket-Duel.webp"
+  },
+  {
+    "id": "ext_vs5jokjewhs",
+    "code": "vs5jokjewhs",
+    "name": "Cyberheist City",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayscyhecity.png"
+  },
+  {
+    "id": "ext_vswayswwrichr",
+    "code": "vswayswwrichr",
+    "name": "DJ Neko",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10djneko.png"
+  },
+  {
+    "id": "ext_vs20swdicex",
+    "code": "vs20swdicex",
+    "name": "Dragon Tiger Fortunes",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayshuffpbh.png"
+  },
+  {
+    "id": "live_33178",
+    "code": "game_id:33178",
+    "name": "Dragon Tiger Fortunes",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Dragon-Tiger-Fortunes.webp"
+  },
+  {
+    "id": "ext_vs10fdwhorses",
+    "code": "vs10fdwhorses",
+    "name": "Duel of Night & Day",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysyinyang.png"
+  },
+  {
+    "id": "ext_vs10jpblaze",
+    "code": "vs10jpblaze",
+    "name": "Fire Stampede 2",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysfirest2.png"
+  },
+  {
+    "id": "ext_vswayshuffpbh",
+    "code": "vswayshuffpbh",
+    "name": "Floating Dragon Wild Horses",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10fdwhorses.png"
+  },
+  {
+    "id": "ext_vs10bbsplashx",
+    "code": "vs10bbsplashx",
+    "name": "Fortune of Olympus",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20olympgcl.png"
+  },
+  {
+    "id": "live_21022",
+    "code": "game_id:21022",
+    "name": "Fortune Red Packets",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Fortune-Red-Packets.webp"
+  },
+  {
+    "id": "ext_vs20starprss",
+    "code": "vs20starprss",
+    "name": "Frightening Frankie",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20frankie.png"
+  },
+  {
+    "id": "live_17279",
+    "code": "game_id:17279",
+    "name": "Gallina Fortunata",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakon.casino/storage"
+  },
+  {
+    "id": "live_29902",
+    "code": "game_id:29902",
+    "name": "Ganesha Thimbles",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Ganesha-Thimbles.webp"
+  },
+  {
+    "id": "ext_vs10beekeep",
+    "code": "vs10beekeep",
+    "name": "Genie’s Gem Bonanza",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20gengembnz.png"
+  },
+  {
+    "id": "live_14895",
+    "code": "game_id:14895",
+    "name": "Gold Club Auto Roulette",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Gold-Club-Auto-Roulette.webp"
+  },
+  {
+    "id": "live_23243",
+    "code": "game_id:23243",
+    "name": "Gravity Wheel",
+    "tag": "Live",
+    "provider": "pragmatic-live",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Gravity-Wheel.webp"
+  },
+  {
+    "id": "ext_vswaysacnd",
+    "code": "vswaysacnd",
+    "name": "Hammerstorm",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs40hmrstrm.png"
+  },
+  {
+    "id": "ext_vs20procountxm",
+    "code": "vs20procountxm",
+    "name": "Happy Nets",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20fishptrn.png"
+  },
+  {
+    "id": "live_30177",
+    "code": "game_id:30177",
+    "name": "Hippo Splash",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Hippo-Splash.webp"
+  },
+  {
+    "id": "ext_vssg5luckycol",
+    "code": "vssg5luckycol",
+    "name": "Hot Tuna",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10hottuna.png"
+  },
+  {
+    "id": "ext_vs20swrbon",
+    "code": "vs20swrbon",
+    "name": "Hundreds and Thousands",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs100hsandks.png"
+  },
+  {
+    "id": "ext_vswayschilhtwo",
+    "code": "vswayschilhtwo",
+    "name": "Jackpot Blaze",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10jpblaze.png"
+  },
+  {
+    "id": "ext_vswayswildeq",
+    "code": "vswayswildeq",
+    "name": "Joker’s Jewels Hold & Spin",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs5jokjewhs.png"
+  },
+  {
+    "id": "ext_vs10luckybnz",
+    "code": "vs10luckybnz",
+    "name": "King of Spear",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20speark.png"
+  },
+  {
+    "id": "live_42725",
+    "code": "game_id:42725",
+    "name": "Limbosphere",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Limbosphere.webp"
+  },
+  {
+    "id": "ext_vs20gengembnz",
+    "code": "vs20gengembnz",
+    "name": "Lobster House",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20lbstrhouse.png"
+  },
+  {
+    "id": "live_14896",
+    "code": "game_id:14896",
+    "name": "Lotus Auto Roulette",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Lotus-Auto-Roulette.webp"
+  },
+  {
+    "id": "live_56833",
+    "code": "game_id:56833",
+    "name": "Lucky Colors",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Lucky-Colors.webp"
+  },
+  {
+    "id": "ext_vswaysmjwl",
+    "code": "vswaysmjwl",
+    "name": "Lucky Fortune Tree",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vssg5luckycol.png"
+  },
+  {
+    "id": "live_33187",
+    "code": "game_id:33187",
+    "name": "Lucky Money",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Lucky-Money.webp"
+  },
+  {
+    "id": "ext_vs40hmrstrm",
+    "code": "vs40hmrstrm",
+    "name": "Lucky Panda",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs5lckpnd.png"
+  },
+  {
+    "id": "live_21001",
+    "code": "game_id:21001",
+    "name": "Mega Wheel",
+    "tag": "Live",
+    "provider": "livegames",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Mega-Wheel.webp"
+  },
+  {
+    "id": "live_39717",
+    "code": "game_id:39717",
+    "name": "Mega Wheel",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Mega-Wheel.webp"
+  },
+  {
+    "id": "ext_vswayscyhecity",
+    "code": "vswayscyhecity",
+    "name": "Meow Megaways",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayslmm.png"
+  },
+  {
+    "id": "ext_vs7fire88fp",
+    "code": "vs7fire88fp",
+    "name": "Mermaid’s Treasure Trove",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20mmdtres.png"
+  },
+  {
+    "id": "live_42723",
+    "code": "game_id:42723",
+    "name": "Mighty Hot: 777 Burning Board",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Mighty-Hot-777-Burning-Board.webp"
+  },
+  {
+    "id": "live_17278",
+    "code": "game_id:17278",
+    "name": "MONOPOLY Cash Is King",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/MONOPOLY-Cash-Is-King.webp"
+  },
+  {
+    "id": "live_24305",
+    "code": "game_id:24305",
+    "name": "MONOPOLY Money Line",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/MONOPOLY-Money-Line.webp"
+  },
+  {
+    "id": "live_33189",
+    "code": "game_id:33189",
+    "name": "Monopoly Rush Hour",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Monopoly-Rush-Hour.webp"
+  },
+  {
+    "id": "ext_vs20sugrushss",
+    "code": "vs20sugrushss",
+    "name": "Mummy’s Jewels",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysmjwl.png"
+  },
+  {
+    "id": "ext_vs30bingomania",
+    "code": "vs30bingomania",
+    "name": "Mystic Wishes",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs7fire88fp.png"
+  },
+  {
+    "id": "ext_vs20lbstrhouse",
+    "code": "vs20lbstrhouse",
+    "name": "Olympus Wins",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysolwfp.png"
+  },
+  {
+    "id": "ext_vs20chestcol",
+    "code": "vs20chestcol",
+    "name": "Oracle of Gold",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20oragold.png"
+  },
+  {
+    "id": "live_33179",
+    "code": "game_id:33179",
+    "name": "Power of Gods: Medusa Burning Board",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Power-of-Gods-Medusa-Burning-Board.webp"
+  },
+  {
+    "id": "live_17640",
+    "code": "game_id:17640",
+    "name": "Rock vs Paper",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Rock-vs-Paper.webp"
+  },
+  {
+    "id": "live_11973",
+    "code": "game_id:11973",
+    "name": "Salon Prive Auto-Roulette B",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Salon-Prive-Auto-Roulette-B.webp"
+  },
+  {
+    "id": "ext_vswaysreelbtl",
+    "code": "vswaysreelbtl",
+    "name": "Santa’s Slay",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10santasl.png"
+  },
+  {
+    "id": "live_65159",
+    "code": "game_id:65159",
+    "name": "Sic Bo",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Sic-Bo.webp"
+  },
+  {
+    "id": "ext_vs20oragold",
+    "code": "vs20oragold",
+    "name": "Starlight Princess Super Scatter",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20starprss.png"
+  },
+  {
+    "id": "live_21023",
+    "code": "game_id:21023",
+    "name": "Street Skater",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Street-Skater.webp"
+  },
+  {
+    "id": "ext_vs5tikistrike",
+    "code": "vs5tikistrike",
+    "name": "Sugar Rush Super Scatter",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20sugrushss.png"
+  },
+  {
+    "id": "ext_vs10santasl",
+    "code": "vs10santasl",
+    "name": "Super Gummy Strike",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs5supergummy.png"
+  },
+  {
+    "id": "live_11483",
+    "code": "game_id:11483",
+    "name": "Super Speed Baccarat A",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Super-Speed-Baccarat-A.webp"
+  },
+  {
+    "id": "ext_vs20speark",
+    "code": "vs20speark",
+    "name": "Super Tiki Strike",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs5tikistrike.png"
+  },
+  {
+    "id": "live_20469",
+    "code": "game_id:20469",
+    "name": "Surrender Multihand Blackjack",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Surrender-Multihand-Blackjack.webp"
+  },
+  {
+    "id": "ext_vswayslmm",
+    "code": "vswayslmm",
+    "name": "Sweet Bonanza 1000 Dice",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20swdicex.png"
+  },
+  {
+    "id": "ext_vs15zeushadseq",
+    "code": "vs15zeushadseq",
+    "name": "Sweet Burst",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs10luckybnz.png"
+  },
+  {
+    "id": "ext_vs5supergummy",
+    "code": "vs5supergummy",
+    "name": "Sweet Craze",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20chestcol.png"
+  },
+  {
+    "id": "ext_vs20mmdtres",
+    "code": "vs20mmdtres",
+    "name": "Sweet Rush Bonanza",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20swrbon.png"
+  },
+  {
+    "id": "live_29905",
+    "code": "game_id:29905",
+    "name": "The Choice",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/The-Choice.webp"
+  },
+  {
+    "id": "live_29755",
+    "code": "game_id:29755",
+    "name": "Turkish Blackjack 5",
+    "tag": "Live",
+    "provider": "evolutionwcx",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Blackjack-5.webp"
+  },
+  {
+    "id": "live_14869",
+    "code": "game_id:14869",
+    "name": "Turkish Roulette",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Roulette.webp"
+  },
+  {
+    "id": "live_14861",
+    "code": "game_id:14861",
+    "name": "Turkish Roulette",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Roulette.webp"
+  },
+  {
+    "id": "live_52586",
+    "code": "game_id:52586",
+    "name": "Turkish Roulette",
+    "tag": "Live",
+    "provider": "micro-gaming-live",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Roulette.webp"
+  },
+  {
+    "id": "live_30511",
+    "code": "game_id:30511",
+    "name": "Turkish Roulette",
+    "tag": "Live",
+    "provider": "7-mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Roulette.webp"
+  },
+  {
+    "id": "live_23345",
+    "code": "game_id:23345",
+    "name": "Turkish Roulette",
+    "tag": "Live",
+    "provider": "pragmatic-live",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Turkish-Roulette.webp"
+  },
+  {
+    "id": "live_39734",
+    "code": "game_id:39734",
+    "name": "Unicorn Reels Burning",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Unicorn-Reels-Burning.webp"
+  },
+  {
+    "id": "live_14894",
+    "code": "game_id:14894",
+    "name": "Valentine's Coins Burning Board",
+    "tag": "Live",
+    "provider": "7mojos",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Valentines-Coins-Burning-Board.webp"
+  },
+  {
+    "id": "live_29901",
+    "code": "game_id:29901",
+    "name": "Vortex 2",
+    "tag": "Live",
+    "provider": "evolutionwchs",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Vortex-2.webp"
+  },
+  {
+    "id": "live_29894",
+    "code": "game_id:29894",
+    "name": "Vortex Safari",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Vortex-Safari.webp"
+  },
+  {
+    "id": "ext_vs10hottuna",
+    "code": "vs10hottuna",
+    "name": "Wheel of Happiness",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayswildeq.png"
+  },
+  {
+    "id": "ext_vswaysyinyang",
+    "code": "vswaysyinyang",
+    "name": "Wild Wild Riches Returns",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswayswwrichr.png"
+  },
+  {
+    "id": "ext_vs10bbglxmas",
+    "code": "vs10bbglxmas",
+    "name": "Wisdom of Athena 1000 Xmas",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs20procountxm.png"
+  },
+  {
+    "id": "live_20474",
+    "code": "game_id:20474",
+    "name": "Zen Tiger Bingo",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Zen-Tiger-Bingo.webp"
+  },
+  {
+    "id": "ext_vs25wolfgmm",
+    "code": "vs25wolfgmm",
+    "name": "Zeus vs Hades – Gods of War 250",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vs15zeushadseq.png"
+  },
+  {
+    "id": "live_11482",
+    "code": "game_id:11482",
+    "name": "Zeus vs Hades – Gods of War 250",
+    "tag": "Live",
+    "provider": "unknown",
+    "imageUrl": "https://gator.drakonapi.tech/storage/drakon/Zeus-vs-Hades--Gods-of-War-250.webp"
+  },
+  {
+    "id": "ext_vs20fishptrn",
+    "code": "vs20fishptrn",
+    "name": "Zeus vs Typhon",
+    "tag": "Slot",
+    "provider": "slot-pragmatic",
+    "imageUrl": "https://paleturquoise-newt-207603.hostingersite.com/storage/images/vswaysreelbtl.png"
+  }
+]

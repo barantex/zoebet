@@ -1,0 +1,629 @@
+﻿/* ZoeBet Full CSS */
+.zoe-layout{display:flex;min-height:100vh;background:#111118;color:#e5e7eb;font-family:Inter,system-ui,sans-serif}
+.zoe-sidebar{width:220px;min-width:220px;background:#1a1a24;border-right:1px solid rgba(255,255,255,.07);position:fixed;top:0;left:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;z-index:50}
+.zoe-sidebar-logo{display:flex;align-items:center;gap:8px;padding:16px 14px 14px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:6px}
+.zoe-logo-icon{font-size:22px}.zoe-logo-text{font-size:19px;font-weight:900;color:#fff}.zoe-logo-text span{color:#f5c518}
+.zoe-side-nav{display:flex;flex-direction:column;padding:0 8px 24px;gap:1px;flex:1}
+.zoe-side-group-label{font-size:10px;font-weight:700;letter-spacing:.14em;color:#4b5563;padding:12px 8px 4px;text-transform:uppercase}
+.zoe-side-link{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;text-decoration:none;color:#9ca3af;font-size:13px;transition:background .12s,color .12s}
+.zoe-side-link:hover{background:rgba(255,255,255,.05);color:#e5e7eb}
+.zoe-side-link--active{background:rgba(245,197,24,.12);color:#f5c518;font-weight:600}
+.zoe-side-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}.zoe-side-text{flex:1}
+.zoe-side-badge{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;background:#f5c518;color:#111}
+.zoe-body{flex:1;display:flex;flex-direction:column;min-width:0;margin-left:220px}
+.zoe-ticker{background:#f5c518;overflow:hidden;white-space:nowrap;height:32px;display:flex;align-items:center;flex-shrink:0}
+.zoe-ticker-track{display:inline-flex;animation:zoe-ticker 50s linear infinite}
+.zoe-ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 28px;font-size:12px;font-weight:700;color:#111}
+@keyframes zoe-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.zoe-topbar{display:flex;align-items:center;justify-content:flex-end;padding:8px 20px;background:#1a1a24;border-bottom:1px solid rgba(255,255,255,.06);gap:8px;flex-shrink:0}
+.zoe-topbar-auth{display:flex;align-items:center;gap:8px}
+.zoe-main{flex:1;padding:20px 22px 40px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.zoe-btn{font-family:inherit;border-radius:6px;border:1px solid transparent;font-size:13px;font-weight:600;padding:8px 18px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:filter .15s,transform .1s;white-space:nowrap;text-decoration:none;line-height:1}
+.zoe-btn--primary{background:#f5c518;color:#111;border-color:#f5c518}.zoe-btn--primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.zoe-btn--ghost{background:transparent;color:#e5e7eb;border-color:rgba(255,255,255,.18)}.zoe-btn--ghost:hover{background:rgba(255,255,255,.07)}
+.zoe-btn--outline{background:transparent;border-color:rgba(255,255,255,.18);color:#e5e7eb}.zoe-btn--outline:hover{background:rgba(255,255,255,.07)}
+.zoe-btn--accent{background:#e67e00;color:#fff}.zoe-btn--accent:hover{filter:brightness(1.1)}
+.zoe-btn--full{width:100%}.zoe-btn--lg{font-size:15px;padding:10px 24px}.zoe-btn--sm{font-size:11px;padding:5px 11px}.zoe-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.zoe-user-pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);max-width:200px}
+.zoe-user-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.zoe-user-text{font-size:12px;color:#e5e7eb;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zoe-panel{padding:16px;border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07)}
+.zoe-page-head h2{margin:0 0 4px;font-size:20px;color:#f9fafb}.zoe-page-head p{margin:0;color:#6b7280;font-size:13px}
+.zoe-muted{color:#6b7280}
+.zoe-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#e5e7eb}
+.zoe-badge--on{border-color:rgba(34,197,94,.5);color:#86efac;background:rgba(34,197,94,.1)}
+.zoe-badge--off{border-color:rgba(239,68,68,.5);color:#fca5a5;background:rgba(239,68,68,.1)}
+.zoe-alert{padding:10px 12px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.4);color:#fca5a5;font-size:13px}
+.zoe-field{display:flex;flex-direction:column;gap:5px}.zoe-field-label{font-size:12px;color:#9ca3af}
+.zoe-input{border-radius:7px;border:1px solid rgba(255,255,255,.1);background:#111118;color:#e5e7eb;padding:9px 12px;font-size:13px;outline:none;font-family:inherit;width:100%;box-sizing:border-box}
+.zoe-input:focus{border-color:rgba(245,197,24,.6);box-shadow:0 0 0 3px rgba(245,197,24,.1)}
+.zoe-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px}
+@media(max-width:900px){.zoe-form-grid{grid-template-columns:1fr}}
+/* GAME GRID */
+.zoe-game-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.zoe-chip{border-radius:6px;border:1px solid rgba(255,255,255,.1);padding:5px 12px;font-size:12px;background:#1e1e2a;color:#9ca3af;cursor:pointer;transition:all .15s;font-family:inherit}
+.zoe-chip--active{border-color:rgba(245,197,24,.6);color:#f5c518;background:rgba(245,197,24,.1)}
+.zoe-game-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:1400px){.zoe-game-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1100px){.zoe-game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.zoe-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.zoe-game-card{position:relative;border-radius:10px;overflow:hidden;background:#1e1e2a;aspect-ratio:3/4;cursor:pointer;border:1px solid rgba(255,255,255,.07);transition:transform .15s,border-color .15s}
+.zoe-game-card:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
+.zoe-game-card-img{width:100%;height:100%;object-fit:cover;display:block}
+.zoe-game-card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:900;color:#374151;background:#1e1e2a}
+.zoe-game-card-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;transition:opacity .2s}
+.zoe-game-card-overlay--show{opacity:1}
+.zoe-game-card-name{color:#fff;font-size:13px;font-weight:700;text-align:center;padding:0 8px;text-shadow:0 1px 4px rgba(0,0,0,.8)}
+.zoe-game-card-tag{position:absolute;top:6px;left:6px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;background:rgba(245,197,24,.9);color:#111}
+/* BANNER SLIDER */
+.zoe-banner-slider{position:relative;border-radius:12px;overflow:hidden;min-height:280px;background:#1a1a24}
+.zoe-banner{position:absolute;inset:0;display:flex;align-items:stretch;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .6s ease}
+.zoe-banner--active{opacity:1;pointer-events:auto}
+.zoe-banner-image{width:100%;height:100%;object-fit:cover;min-height:280px}
+.zoe-banner-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,16,.85) 0%,rgba(10,10,16,.4) 60%,transparent 100%);display:flex;align-items:center;justify-content:space-between;padding:28px 36px}
+.zoe-banner-text h2{margin:0 0 6px;font-size:28px;font-weight:900;color:#fff;line-height:1.15}
+.zoe-banner-text p{margin:0;font-size:14px;color:#d1d5db}
+.zoe-banner-cta{padding:10px 22px;border-radius:6px;background:#f5c518;color:#111;font-weight:700;font-size:14px;white-space:nowrap}
+.zoe-banner-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px}
+.zoe-banner-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:rgba(255,255,255,.3);cursor:pointer;transition:all .2s}
+.zoe-banner-dot--active{width:22px;border-radius:4px;background:#f5c518}
+.zoe-banner-thumb{width:64px;height:36px;object-fit:cover;border-radius:6px}
+/* SECTION HEADER */
+.zoe-section-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.zoe-section-header h2{margin:0 0 2px;font-size:18px;color:#f9fafb}
+.zoe-section-header p{margin:0;font-size:13px;color:#6b7280}
+/* CASINO GRID (home preview) */
+.zoe-casino{display:flex;flex-direction:column;gap:4px}
+.zoe-casino-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+@media(max-width:1200px){.zoe-casino-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.zoe-casino-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.zoe-casino-card{border-radius:10px;overflow:hidden;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.zoe-casino-card:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
+.zoe-casino-thumb{aspect-ratio:3/4;position:relative;background:#111}
+.zoe-game-thumb{width:100%;height:100%;object-fit:cover}
+.zoe-casino-tag{position:absolute;left:6px;top:6px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;background:rgba(245,197,24,.9);color:#111}
+.zoe-casino-info{padding:8px 9px 10px;display:flex;flex-direction:column;gap:5px}
+.zoe-casino-info h3{margin:0;font-size:12px;color:#f9fafb}.zoe-casino-info p{margin:0;font-size:11px;color:#6b7280}
+/* LIVE TABLE */
+.zoe-live-table{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);overflow:hidden}
+.zoe-live-table-head{display:grid;grid-template-columns:4fr repeat(3,1fr);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#6b7280;padding:8px 12px;background:#111118}
+.zoe-live-table-body{display:flex;flex-direction:column}
+.zoe-live-row{display:grid;grid-template-columns:4fr repeat(3,1fr);padding:10px 12px;align-items:center;border-top:1px solid rgba(255,255,255,.05)}
+.zoe-live-row:hover{background:rgba(255,255,255,.03)}
+.zoe-live-main{display:flex;flex-direction:column;gap:3px}
+.zoe-live-meta{display:flex;gap:8px;font-size:11px;color:#6b7280}
+.zoe-live-sport{color:#f5c518;font-weight:600;text-transform:uppercase;font-size:10px}
+.zoe-live-teams{font-size:13px;color:#f9fafb;margin:0;font-weight:500}
+.zoe-live-status{display:flex;align-items:center;gap:8px;font-size:11px;margin-top:2px}
+.zoe-live-minute{padding:1px 7px;border-radius:4px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#fca5a5;font-size:10px}
+.zoe-live-score{color:#e5e7eb}
+.zoe-live-odds{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.zoe-odd-btn{border-radius:6px;border:1px solid rgba(255,255,255,.1);background:#111118;color:#e5e7eb;font-size:13px;font-weight:600;padding:7px 4px;cursor:pointer;transition:all .15s;font-family:inherit}
+.zoe-odd-btn--primary{border-color:rgba(245,197,24,.5);background:rgba(245,197,24,.1);color:#f5c518}
+.zoe-odd-btn:hover:not(:disabled){background:rgba(245,197,24,.15);border-color:#f5c518;color:#f5c518}
+.zoe-odd-btn:disabled{opacity:.3;cursor:default}
+/* SPORTS TABS */
+.zoe-sports{display:flex;flex-direction:column;gap:12px}
+.zoe-sports-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.zoe-sports-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.zoe-sports-tab{border-radius:6px;border:1px solid rgba(255,255,255,.1);padding:6px 14px;background:#1e1e2a;color:#9ca3af;font-size:13px;cursor:pointer;transition:all .15s;font-family:inherit}
+.zoe-sports-tab:hover{border-color:rgba(245,197,24,.4);color:#e5e7eb}
+.zoe-sports-tab--active{background:rgba(245,197,24,.12);border-color:rgba(245,197,24,.6);color:#f5c518;font-weight:600}
+.zoe-sports-filters{display:flex;gap:6px}
+/* HERO */
+.zoe-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:stretch}
+@media(max-width:960px){.zoe-hero{grid-template-columns:1fr}}
+.zoe-hero-text{display:flex;flex-direction:column;gap:16px}
+.zoe-pill{align-self:flex-start;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(245,197,24,.12);color:#f5c518;border:1px solid rgba(245,197,24,.3)}
+.zoe-hero h1{font-size:32px;line-height:1.1;letter-spacing:-.02em;color:#f9fafb;margin:0}
+.zoe-hero h1 span{color:#f5c518}
+.zoe-hero p{margin:0;color:#9ca3af;font-size:14px}
+.zoe-hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.zoe-hero-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:13px}
+.zoe-hero-meta>div{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.zoe-hero-meta-label{display:block;color:#6b7280;font-size:11px}
+.zoe-hero-meta-value{color:#e5e7eb;font-weight:600}
+.zoe-hero-card{border-radius:12px;background:#1e1e2a;border:1px solid rgba(245,197,24,.25);padding:16px;display:flex;flex-direction:column;gap:10px}
+.zoe-hero-card-header{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#e5e7eb}
+.zoe-hero-tag{padding:3px 8px;border-radius:4px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.4);font-size:10px;font-weight:700;text-transform:uppercase;color:#f5c518}
+.zoe-hero-card-body{display:flex;flex-direction:column;gap:8px}
+.zoe-hero-slip-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;background:#111118}
+.zoe-hero-slip-league{font-size:11px;color:#6b7280;margin:0}
+.zoe-hero-slip-teams{font-size:13px;color:#f9fafb;margin:2px 0 0;font-weight:500}
+.zoe-hero-slip-odds{font-size:15px;color:#f5c518;font-weight:700}
+.zoe-hero-slip-summary{display:flex;justify-content:space-between;padding:6px 10px 2px;font-size:12px;color:#e5e7eb}
+.zoe-hero-slip-summary span{display:block;color:#6b7280}
+.zoe-hero-slip-summary strong{display:block;font-size:14px;margin-top:2px}
+/* CARDS */
+.zoe-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.zoe-cards{grid-template-columns:1fr}}
+.zoe-card{border-radius:10px;border:1px solid rgba(255,255,255,.07);background:#111118;padding:14px;display:flex;flex-direction:column;gap:10px}
+.zoe-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.zoe-card h3{margin:0;font-size:14px;color:#f9fafb}
+/* AUTH */
+.zoe-auth-page{display:grid;place-items:center;padding:24px 0 48px}
+.zoe-auth-card{width:min(480px,100%);border-radius:12px;background:#1e1e2a;border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;gap:14px}
+/* ADMIN */
+.zoe-admin{display:grid;grid-template-columns:240px minmax(0,1fr);gap:12px}
+@media(max-width:900px){.zoe-admin{grid-template-columns:1fr}}
+.zoe-admin-side{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:14px}
+.zoe-admin-title h2{margin:0;font-size:17px;color:#e5e7eb}
+.zoe-admin-nav{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.zoe-admin-link{padding:9px 12px;border-radius:8px;text-decoration:none;color:#9ca3af;border:1px solid transparent;font-size:13px;transition:all .15s;display:block}
+.zoe-admin-link:hover{background:rgba(255,255,255,.05);color:#e5e7eb}
+.zoe-admin-link--active{border-color:rgba(245,197,24,.4);color:#f5c518;background:rgba(245,197,24,.08);font-weight:600}
+.zoe-admin-content{display:flex;flex-direction:column;gap:12px}
+.zoe-admin-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.zoe-admin-kpis{grid-template-columns:repeat(2,1fr)}}
+.zoe-kpi{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:14px}
+.zoe-kpi span{display:block;color:#6b7280;font-size:12px}
+.zoe-kpi strong{display:block;color:#f9fafb;font-size:24px;margin-top:4px}
+.zoe-admin-table{display:flex;flex-direction:column;gap:6px}
+.zoe-admin-row{display:grid;grid-template-columns:2.4fr 1.2fr repeat(3,.8fr) 2.2fr;gap:8px;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:#111118;font-size:13px}
+.zoe-admin-row--head{background:#1e1e2a;color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:900px){.zoe-admin-row,.zoe-admin-row--head{grid-template-columns:1fr}}
+.zoe-admin-strong{color:#f9fafb;font-size:13px}
+.zoe-admin-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.zoe-admin-status{display:flex}
+/* FINANCE */
+.zoe-finance{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.zoe-finance{grid-template-columns:1fr}}
+.zoe-finance-summary{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:20px;display:flex;flex-direction:column;gap:16px}
+.zoe-finance-balance span{display:block;font-size:13px;color:#6b7280}
+.zoe-finance-balance strong{display:block;font-size:32px;font-weight:800;color:#f5c518;margin:4px 0}
+.zoe-finance-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zoe-finance-kpis>div{padding:10px;border-radius:8px;background:#111118;border:1px solid rgba(255,255,255,.06)}
+.zoe-finance-kpis span{display:block;font-size:11px;color:#6b7280}
+.zoe-finance-kpis strong{display:block;font-size:16px;font-weight:700;color:#f9fafb;margin-top:3px}
+.zoe-finance-actions{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:20px;display:flex;flex-direction:column;gap:14px}
+.zoe-finance-tabs{display:flex;gap:8px}
+.zoe-finance-form{display:flex;flex-direction:column;gap:10px}
+.zoe-finance-table{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.zoe-finance-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1.5fr;gap:8px;align-items:center;padding:9px 10px;border-radius:7px;font-size:13px}
+.zoe-finance-row--head{background:#111118;color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.zoe-finance-row:not(.zoe-finance-row--head){background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05)}
+.zoe-finance-positive{color:#86efac;font-weight:600}
+.zoe-finance-negative{color:#fca5a5;font-weight:600}
+/* PLAY */
+.zoe-play{display:flex;flex-direction:column;gap:12px}
+.zoe-play-header{display:flex;align-items:center;justify-content:space-between}
+.zoe-play-iframe{width:100%;height:600px;border:none;border-radius:8px;background:#111}
+.zoe-play-note{font-size:12px;color:#6b7280;text-align:center}
+/* INFO */
+.zoe-info-list{padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.zoe-info-list li{color:#d1d5db;font-size:14px;line-height:1.6}
+/* SUPPORT WIDGET */
+.zoe-support{position:fixed;bottom:24px;right:24px;z-index:100;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.zoe-support-trigger{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:50px;background:#f5c518;color:#111;font-weight:700;font-size:13px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(245,197,24,.4);transition:transform .15s;font-family:inherit}
+.zoe-support-trigger:hover{transform:translateY(-2px)}
+.zoe-support-trigger em{background:#e53e3e;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-style:normal;font-weight:700}
+.zoe-support-panel{width:320px;border-radius:12px;background:#1e1e2a;border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 40px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden}
+.zoe-support-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#f5c518;color:#111}
+.zoe-support-header strong{display:block;font-size:14px}
+.zoe-support-header span{display:block;font-size:11px;opacity:.7}
+.zoe-support-messages{flex:1;max-height:300px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.zoe-support-message{display:flex;flex-direction:column;gap:3px;max-width:85%}
+.zoe-support-message p{margin:0;font-size:13px;padding:8px 10px;border-radius:8px;line-height:1.4}
+.zoe-support-message span{font-size:10px;color:#6b7280}
+.zoe-support-message--user{align-self:flex-end}
+.zoe-support-message--user p{background:rgba(245,197,24,.15);color:#f9fafb;border-radius:8px 8px 2px 8px}
+.zoe-support-message--agent{align-self:flex-start}
+.zoe-support-message--agent p{background:#111118;color:#e5e7eb;border-radius:8px 8px 8px 2px}
+.zoe-support-agent{font-size:10px;color:#f5c518;font-weight:600}
+.zoe-support-input{display:flex;gap:6px;padding:10px;border-top:1px solid rgba(255,255,255,.07)}
+.zoe-support-input .zoe-input{flex:1}
+/* STAFF SUPPORT */
+.zoe-support-admin{display:grid;grid-template-columns:280px minmax(0,1fr);gap:12px;min-height:500px}
+@media(max-width:900px){.zoe-support-admin{grid-template-columns:1fr}}
+.zoe-support-admin-list{display:flex;flex-direction:column;gap:4px;background:#1e1e2a;border-radius:10px;border:1px solid rgba(255,255,255,.07);padding:10px;overflow-y:auto;max-height:600px}
+.zoe-support-admin-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px;border-radius:8px;border:1px solid transparent;background:transparent;color:#e5e7eb;cursor:pointer;text-align:left;transition:all .15s;font-family:inherit;width:100%}
+.zoe-support-admin-item:hover{background:rgba(255,255,255,.04)}
+.zoe-support-admin-item--active{background:rgba(245,197,24,.08);border-color:rgba(245,197,24,.3)}
+.zoe-support-admin-item strong{display:block;font-size:13px}
+.zoe-support-admin-item span{display:block;font-size:11px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.zoe-support-admin-chat{display:flex;flex-direction:column;background:#1e1e2a;border-radius:10px;border:1px solid rgba(255,255,255,.07);overflow:hidden}
+.zoe-support-admin-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.zoe-support-admin-header strong{display:block;font-size:14px;color:#f9fafb}
+.zoe-support-admin-header span{display:block;font-size:12px;color:#6b7280}
+.zoe-support-admin-messages{flex:1;max-height:340px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}
+.zoe-support-admin-quick-panel{padding:10px 14px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:8px}
+.zoe-support-admin-quick-head strong{font-size:12px;color:#e5e7eb}
+.zoe-support-admin-quick-head span{font-size:11px;color:#6b7280;margin-left:6px}
+.zoe-support-admin-quick{display:flex;flex-wrap:wrap;gap:6px}
+.zoe-support-admin-quick-form{display:flex;gap:6px}
+.zoe-support-admin-input{display:flex;gap:6px;padding:10px 14px;border-top:1px solid rgba(255,255,255,.07)}
+.zoe-support-admin-input .zoe-input{flex:1}
+/* FOOTER */
+.zoe-footer{padding:24px;border-top:1px solid rgba(255,255,255,.06);background:#1a1a24;font-size:12px;color:#6b7280}
+.zoe-footer-top{display:flex;gap:40px;margin-bottom:16px;flex-wrap:wrap}
+.zoe-footer-col h4{margin:0 0 8px;font-size:13px;color:#e5e7eb}
+.zoe-footer-col a{display:block;margin-bottom:4px;color:#6b7280;cursor:pointer;transition:color .15s}
+.zoe-footer-col a:hover{color:#f5c518}
+.zoe-footer-note{margin:0;opacity:.7;line-height:1.6}
+@media(max-width:900px){.zoe-body{margin-left:0}.zoe-sidebar{display:none}}
+/* BANNER */
+.zoe-banner-slider{position:relative;border-radius:12px;overflow:hidden;min-height:280px;background:#1a1a24;aspect-ratio:3/1}
+.zoe-banner{position:absolute;inset:0;display:flex;align-items:stretch;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .6s}
+.zoe-banner--active{opacity:1;pointer-events:auto}
+.zoe-banner-image{width:100%;height:100%;object-fit:cover;min-height:280px}
+.zoe-banner-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,16,.85) 0%,rgba(10,10,16,.4) 60%,transparent 100%);display:flex;align-items:center;justify-content:space-between;padding:28px 36px}
+.zoe-banner-text h2{margin:0 0 6px;font-size:28px;font-weight:900;color:#fff;line-height:1.15}
+.zoe-banner-text p{margin:0;font-size:14px;color:#d1d5db}
+.zoe-banner-cta{padding:10px 22px;border-radius:6px;background:#f5c518;color:#111;font-weight:700;font-size:14px;white-space:nowrap}
+.zoe-banner-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px}
+.zoe-banner-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:rgba(255,255,255,.3);cursor:pointer;transition:all .2s}
+.zoe-banner-dot--active{width:22px;border-radius:4px;background:#f5c518}
+.zoe-banner-thumb{width:64px;height:36px;object-fit:cover;border-radius:6px}
+/* SECTION HEADER */
+.zoe-section-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.zoe-section-header h2{margin:0 0 2px;font-size:18px;color:#f9fafb}
+.zoe-section-header p{margin:0;font-size:13px;color:#6b7280}
+/* CASINO HOME PREVIEW */
+.zoe-casino{display:flex;flex-direction:column;gap:4px}
+.zoe-casino-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+@media(max-width:1200px){.zoe-casino-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.zoe-casino-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.zoe-casino-card{border-radius:10px;overflow:hidden;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;transition:transform .15s,border-color .15s;cursor:pointer}
+.zoe-casino-card:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
+.zoe-casino-thumb{aspect-ratio:3/4;position:relative;background:#111}
+.zoe-game-thumb{width:100%;height:100%;object-fit:cover;display:block}
+.zoe-casino-tag{position:absolute;left:6px;top:6px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;background:rgba(245,197,24,.9);color:#111}
+.zoe-casino-info{padding:8px 9px 10px;display:flex;flex-direction:column;gap:5px}
+.zoe-casino-info h3{margin:0;font-size:12px;color:#f9fafb}
+.zoe-casino-info p{margin:0;font-size:11px;color:#6b7280}
+/* GAME GRID (casino page) */
+.zoe-game-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.zoe-game-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:1400px){.zoe-game-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1100px){.zoe-game-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.zoe-game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.zoe-game-card{position:relative;border-radius:10px;overflow:hidden;background:#1e1e2a;aspect-ratio:3/4;cursor:pointer;border:1px solid rgba(255,255,255,.07);transition:transform .15s,border-color .15s}
+.zoe-game-card:hover{transform:translateY(-3px);border-color:rgba(245,197,24,.4)}
+.zoe-game-card-img{width:100%;height:100%;object-fit:cover;display:block}
+.zoe-game-card-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:900;color:#374151;background:#1e1e2a}
+.zoe-game-card-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;transition:opacity .2s}
+.zoe-game-card-overlay--show{opacity:1}
+.zoe-game-card-name{color:#fff;font-size:12px;font-weight:700;text-align:center;padding:0 8px;text-shadow:0 1px 4px rgba(0,0,0,.8)}
+.zoe-game-card-tag{position:absolute;top:6px;left:6px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;background:rgba(245,197,24,.9);color:#111}
+/* LIVE TABLE */
+.zoe-live-table{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);overflow:hidden}
+.zoe-live-table-head{display:grid;grid-template-columns:4fr repeat(3,1fr);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#6b7280;padding:8px 12px;background:#111118}
+.zoe-live-table-body{display:flex;flex-direction:column}
+.zoe-live-row{display:grid;grid-template-columns:4fr repeat(3,1fr);padding:10px 12px;align-items:center;border-top:1px solid rgba(255,255,255,.05)}
+.zoe-live-row:hover{background:rgba(255,255,255,.03)}
+.zoe-live-main{display:flex;flex-direction:column;gap:3px}
+.zoe-live-meta{display:flex;gap:8px;font-size:11px;color:#6b7280}
+.zoe-live-sport{color:#f5c518;font-weight:600;text-transform:uppercase;font-size:10px}
+.zoe-live-teams{font-size:13px;color:#f9fafb;margin:0;font-weight:500}
+.zoe-live-status{display:flex;align-items:center;gap:8px;font-size:11px;margin-top:2px}
+.zoe-live-minute{padding:1px 7px;border-radius:4px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#fca5a5;font-size:10px}
+.zoe-live-score{color:#e5e7eb}
+.zoe-live-odds{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.zoe-odd-btn{border-radius:6px;border:1px solid rgba(255,255,255,.1);background:#111118;color:#e5e7eb;font-size:13px;font-weight:600;padding:7px 4px;cursor:pointer;transition:all .15s;font-family:inherit}
+.zoe-odd-btn--primary{border-color:rgba(245,197,24,.5);background:rgba(245,197,24,.1);color:#f5c518}
+.zoe-odd-btn:hover:not(:disabled){background:rgba(245,197,24,.15);border-color:#f5c518;color:#f5c518}
+.zoe-odd-btn:disabled{opacity:.3;cursor:default}
+/* SPORTS */
+.zoe-sports{display:flex;flex-direction:column;gap:12px}
+.zoe-sports-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.zoe-sports-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.zoe-sports-tab{border-radius:6px;border:1px solid rgba(255,255,255,.1);padding:6px 14px;background:#1e1e2a;color:#9ca3af;font-size:13px;cursor:pointer;transition:all .15s;font-family:inherit}
+.zoe-sports-tab:hover{border-color:rgba(245,197,24,.4);color:#e5e7eb}
+.zoe-sports-tab--active{background:rgba(245,197,24,.12);border-color:rgba(245,197,24,.6);color:#f5c518;font-weight:600}
+.zoe-sports-filters{display:flex;gap:6px}
+/* HERO */
+.zoe-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:stretch}
+@media(max-width:960px){.zoe-hero{grid-template-columns:1fr}}
+.zoe-hero-text{display:flex;flex-direction:column;gap:16px}
+.zoe-pill{align-self:flex-start;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(245,197,24,.12);color:#f5c518;border:1px solid rgba(245,197,24,.3)}
+.zoe-hero h1{font-size:32px;line-height:1.1;letter-spacing:-.02em;color:#f9fafb;margin:0}
+.zoe-hero h1 span{color:#f5c518}
+.zoe-hero p{margin:0;color:#9ca3af;font-size:14px}
+.zoe-hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.zoe-hero-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:13px}
+.zoe-hero-meta>div{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.zoe-hero-meta-label{display:block;color:#6b7280;font-size:11px}
+.zoe-hero-meta-value{color:#e5e7eb;font-weight:600}
+.zoe-hero-card{border-radius:12px;background:#1e1e2a;border:1px solid rgba(245,197,24,.25);padding:16px;display:flex;flex-direction:column;gap:10px}
+.zoe-hero-card-header{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#e5e7eb}
+.zoe-hero-tag{padding:3px 8px;border-radius:4px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.4);font-size:10px;font-weight:700;text-transform:uppercase;color:#f5c518}
+.zoe-hero-card-body{display:flex;flex-direction:column;gap:8px}
+.zoe-hero-slip-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;background:#111118}
+.zoe-hero-slip-league{font-size:11px;color:#6b7280;margin:0}
+.zoe-hero-slip-teams{font-size:13px;color:#f9fafb;margin:2px 0 0;font-weight:500}
+.zoe-hero-slip-odds{font-size:15px;color:#f5c518;font-weight:700}
+.zoe-hero-slip-summary{display:flex;justify-content:space-between;padding:6px 10px 2px;font-size:12px;color:#e5e7eb}
+.zoe-hero-slip-summary span{display:block;color:#6b7280}
+.zoe-hero-slip-summary strong{display:block;font-size:14px;margin-top:2px}
+/* CARDS */
+.zoe-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.zoe-cards{grid-template-columns:1fr}}
+.zoe-card{border-radius:10px;border:1px solid rgba(255,255,255,.07);background:#111118;padding:14px;display:flex;flex-direction:column;gap:10px}
+.zoe-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.zoe-card h3{margin:0;font-size:14px;color:#f9fafb}
+/* AUTH */
+.zoe-auth-page{display:grid;place-items:center;padding:24px 0 48px}
+.zoe-auth-card{width:min(480px,100%);border-radius:12px;background:#1e1e2a;border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;gap:14px}
+/* ADMIN */
+.zoe-admin{display:grid;grid-template-columns:240px minmax(0,1fr);gap:12px}
+@media(max-width:900px){.zoe-admin{grid-template-columns:1fr}}
+.zoe-admin-side{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:14px}
+.zoe-admin-title h2{margin:0;font-size:17px;color:#e5e7eb}
+.zoe-admin-nav{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.zoe-admin-link{padding:9px 12px;border-radius:8px;text-decoration:none;color:#9ca3af;border:1px solid transparent;font-size:13px;transition:all .15s;display:block}
+.zoe-admin-link:hover{background:rgba(255,255,255,.05);color:#e5e7eb}
+.zoe-admin-link--active{border-color:rgba(245,197,24,.4);color:#f5c518;background:rgba(245,197,24,.08);font-weight:600}
+.zoe-admin-content{display:flex;flex-direction:column;gap:12px}
+.zoe-admin-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.zoe-admin-kpis{grid-template-columns:repeat(2,1fr)}}
+.zoe-kpi{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:14px}
+.zoe-kpi span{display:block;color:#6b7280;font-size:12px}
+.zoe-kpi strong{display:block;color:#f9fafb;font-size:24px;margin-top:4px}
+.zoe-admin-table{display:flex;flex-direction:column;gap:6px}
+.zoe-admin-row{display:grid;grid-template-columns:2.4fr 1.2fr repeat(3,.8fr) 2.2fr;gap:8px;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:#111118;font-size:13px}
+.zoe-admin-row--head{background:#1e1e2a;color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:900px){.zoe-admin-row,.zoe-admin-row--head{grid-template-columns:1fr}}
+.zoe-admin-strong{color:#f9fafb;font-size:13px}
+.zoe-admin-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.zoe-admin-status{display:flex}
+/* FINANCE */
+.zoe-finance{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.zoe-finance{grid-template-columns:1fr}}
+.zoe-finance-summary{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:20px;display:flex;flex-direction:column;gap:16px}
+.zoe-finance-balance span{display:block;font-size:13px;color:#6b7280}
+.zoe-finance-balance strong{display:block;font-size:32px;font-weight:800;color:#f5c518;margin:4px 0}
+.zoe-finance-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zoe-finance-kpis>div{padding:10px;border-radius:8px;background:#111118;border:1px solid rgba(255,255,255,.06)}
+.zoe-finance-kpis span{display:block;font-size:11px;color:#6b7280}
+.zoe-finance-kpis strong{display:block;font-size:16px;font-weight:700;color:#f9fafb;margin-top:3px}
+.zoe-finance-actions{border-radius:10px;background:#1e1e2a;border:1px solid rgba(255,255,255,.07);padding:20px;display:flex;flex-direction:column;gap:14px}
+.zoe-finance-tabs{display:flex;gap:8px}
+.zoe-finance-form{display:flex;flex-direction:column;gap:10px}
+.zoe-finance-table{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.zoe-finance-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1.5fr;gap:8px;align-items:center;padding:9px 10px;border-radius:7px;font-size:13px}
+.zoe-finance-row--head{background:#111118;color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.zoe-finance-row:not(.zoe-finance-row--head){background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05)}
+.zoe-finance-positive{color:#86efac;font-weight:600}
+.zoe-finance-negative{color:#fca5a5;font-weight:600}
+/* PLAY */
+.zoe-play{display:flex;flex-direction:column;gap:12px}
+.zoe-play-header{display:flex;align-items:center;justify-content:space-between}
+.zoe-play-iframe{width:100%;height:600px;border:none;border-radius:8px;background:#111}
+.zoe-play-note{font-size:12px;color:#6b7280;text-align:center}
+/* INFO */
+.zoe-info-list{padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.zoe-info-list li{color:#d1d5db;font-size:14px;line-height:1.6}
+/* SUPPORT WIDGET */
+.zoe-support{position:fixed;bottom:24px;right:24px;z-index:100;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.zoe-support-trigger{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:50px;background:#f5c518;color:#111;font-weight:700;font-size:13px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(245,197,24,.4);transition:transform .15s;font-family:inherit}
+.zoe-support-trigger:hover{transform:translateY(-2px)}
+.zoe-support-trigger em{background:#e53e3e;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-style:normal;font-weight:700}
+.zoe-support-panel{width:320px;border-radius:12px;background:#1e1e2a;border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 40px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden}
+.zoe-support-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#f5c518;color:#111}
+.zoe-support-header strong{display:block;font-size:14px}
+.zoe-support-header span{display:block;font-size:11px;opacity:.7}
+.zoe-support-messages{flex:1;max-height:300px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.zoe-support-message{display:flex;flex-direction:column;gap:3px;max-width:85%}
+.zoe-support-message p{margin:0;font-size:13px;padding:8px 10px;border-radius:8px;line-height:1.4}
+.zoe-support-message span{font-size:10px;color:#6b7280}
+.zoe-support-message--user{align-self:flex-end}
+.zoe-support-message--user p{background:rgba(245,197,24,.15);color:#f9fafb;border-radius:8px 8px 2px 8px}
+.zoe-support-message--agent{align-self:flex-start}
+.zoe-support-message--agent p{background:#111118;color:#e5e7eb;border-radius:8px 8px 8px 2px}
+.zoe-support-agent{font-size:10px;color:#f5c518;font-weight:600}
+.zoe-support-input{display:flex;gap:6px;padding:10px;border-top:1px solid rgba(255,255,255,.07)}
+.zoe-support-input .zoe-input{flex:1}
+/* STAFF SUPPORT */
+.zoe-support-admin{display:grid;grid-template-columns:280px minmax(0,1fr);gap:12px;min-height:500px}
+@media(max-width:900px){.zoe-support-admin{grid-template-columns:1fr}}
+.zoe-support-admin-list{display:flex;flex-direction:column;gap:4px;background:#1e1e2a;border-radius:10px;border:1px solid rgba(255,255,255,.07);padding:10px;overflow-y:auto;max-height:600px}
+.zoe-support-admin-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px;border-radius:8px;border:1px solid transparent;background:transparent;color:#e5e7eb;cursor:pointer;text-align:left;transition:all .15s;font-family:inherit;width:100%}
+.zoe-support-admin-item:hover{background:rgba(255,255,255,.04)}
+.zoe-support-admin-item--active{background:rgba(245,197,24,.08);border-color:rgba(245,197,24,.3)}
+.zoe-support-admin-item strong{display:block;font-size:13px}
+.zoe-support-admin-item span{display:block;font-size:11px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.zoe-support-admin-chat{display:flex;flex-direction:column;background:#1e1e2a;border-radius:10px;border:1px solid rgba(255,255,255,.07);overflow:hidden}
+.zoe-support-admin-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.zoe-support-admin-header strong{display:block;font-size:14px;color:#f9fafb}
+.zoe-support-admin-header span{display:block;font-size:12px;color:#6b7280}
+.zoe-support-admin-messages{flex:1;max-height:340px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px}
+.zoe-support-admin-quick-panel{padding:10px 14px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:8px}
+.zoe-support-admin-quick-head strong{font-size:12px;color:#e5e7eb}
+.zoe-support-admin-quick-head span{font-size:11px;color:#6b7280;margin-left:6px}
+.zoe-support-admin-quick{display:flex;flex-wrap:wrap;gap:6px}
+.zoe-support-admin-quick-form{display:flex;gap:6px}
+.zoe-support-admin-input{display:flex;gap:6px;padding:10px 14px;border-top:1px solid rgba(255,255,255,.07)}
+.zoe-support-admin-input .zoe-input{flex:1}
+/* FOOTER */
+.zoe-footer{padding:24px;border-top:1px solid rgba(255,255,255,.06);background:#1a1a24;font-size:12px;color:#6b7280}
+.zoe-footer-top{display:flex;gap:40px;margin-bottom:16px;flex-wrap:wrap}
+.zoe-footer-col h4{margin:0 0 8px;font-size:13px;color:#e5e7eb}
+.zoe-footer-col a{display:block;margin-bottom:4px;color:#6b7280;cursor:pointer;transition:color .15s}
+.zoe-footer-col a:hover{color:#f5c518}
+.zoe-footer-note{margin:0;opacity:.7;line-height:1.6}
+/* RESPONSIVE */
+@media(max-width:900px){.zoe-body{margin-left:0}.zoe-sidebar{display:none}}
+
+/* LOBBY HORIZONTAL SCROLL */
+.zoe-lobby-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.zoe-lobby-title{font-size:18px;font-weight:700;color:#f9fafb;display:flex;align-items:center;gap:8px}
+.zoe-lobby-more{font-size:13px;color:#9ca3af;text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);transition:all .15s}
+.zoe-lobby-more:hover{color:#f5c518;border-color:rgba(245,197,24,.4)}
+.zoe-hscroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;-ms-overflow-style:none}
+.zoe-hscroll::-webkit-scrollbar{display:none}
+.zoe-hgame-card{min-width:180px;width:180px;position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:#1e1e2a;flex-shrink:0;border:1px solid rgba(255,255,255,.07);transition:transform .15s,border-color .15s}
+.zoe-hgame-card:hover{transform:translateY(-4px);border-color:rgba(245,197,24,.5)}
+.zoe-hgame-img{width:100%;height:100%;object-fit:cover;display:block}
+.zoe-hgame-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;color:#374151}
+.zoe-hgame-overlay{position:absolute;inset:0;background:rgba(0,0,0,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .2s}
+.zoe-hgame-overlay--show{opacity:1}
+.zoe-hgame-name{color:#fff;font-size:11px;font-weight:700;text-align:center;padding:0 8px;text-shadow:0 1px 4px rgba(0,0,0,.8);line-height:1.3}
+
+/* ===== MISSING COMPONENTS ===== */
+
+/* Page head */
+.zoe-page-head { margin-bottom: 16px; }
+.zoe-page-head h2 { margin: 0 0 4px; font-size: 20px; color: #f9fafb; font-weight: 700; }
+.zoe-page-head p  { margin: 0; color: #6b7280; font-size: 13px; }
+.zoe-muted { color: #6b7280; }
+
+/* Panel */
+.zoe-panel { padding: 16px; border-radius: 10px; background: #1e1e2a; border: 1px solid rgba(255,255,255,.07); }
+
+/* Badge */
+.zoe-badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); color: #e5e7eb; }
+.zoe-badge--on  { border-color: rgba(34,197,94,.5);  color: #86efac; background: rgba(34,197,94,.1); }
+.zoe-badge--off { border-color: rgba(239,68,68,.5);  color: #fca5a5; background: rgba(239,68,68,.1); }
+
+/* Alert */
+.zoe-alert { padding: 10px 12px; border-radius: 8px; background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.4); color: #fca5a5; font-size: 13px; }
+
+/* Form */
+.zoe-field { display: flex; flex-direction: column; gap: 5px; }
+.zoe-field-label { font-size: 12px; color: #9ca3af; }
+.zoe-input { border-radius: 7px; border: 1px solid rgba(255,255,255,.1); background: #111118; color: #e5e7eb; padding: 9px 12px; font-size: 13px; outline: none; font-family: inherit; width: 100%; box-sizing: border-box; }
+.zoe-input:focus { border-color: rgba(245,197,24,.6); box-shadow: 0 0 0 3px rgba(245,197,24,.1); }
+.zoe-form-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-bottom: 12px; }
+@media(max-width:900px){ .zoe-form-grid { grid-template-columns: 1fr; } }
+
+/* Cards */
+.zoe-cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+@media(max-width:900px){ .zoe-cards { grid-template-columns: 1fr; } }
+.zoe-card { border-radius: 10px; border: 1px solid rgba(255,255,255,.07); background: #111118; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.zoe-card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.zoe-card h3 { margin: 0; font-size: 14px; color: #f9fafb; }
+
+/* Auth */
+.zoe-auth-page { display: grid; place-items: center; padding: 24px 0 48px; }
+.zoe-auth-card { width: min(480px,100%); border-radius: 12px; background: #1e1e2a; border: 1px solid rgba(255,255,255,.08); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+
+/* Finance */
+.zoe-finance { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:768px){ .zoe-finance { grid-template-columns: 1fr; } }
+.zoe-finance-summary { border-radius: 10px; background: #1e1e2a; border: 1px solid rgba(255,255,255,.07); padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.zoe-finance-balance span   { display: block; font-size: 13px; color: #6b7280; }
+.zoe-finance-balance strong { display: block; font-size: 32px; font-weight: 800; color: #f5c518; margin: 4px 0; }
+.zoe-finance-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.zoe-finance-kpis > div { padding: 10px; border-radius: 8px; background: #111118; border: 1px solid rgba(255,255,255,.06); }
+.zoe-finance-kpis span   { display: block; font-size: 11px; color: #6b7280; }
+.zoe-finance-kpis strong { display: block; font-size: 16px; font-weight: 700; color: #f9fafb; margin-top: 3px; }
+.zoe-finance-actions { border-radius: 10px; background: #1e1e2a; border: 1px solid rgba(255,255,255,.07); padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.zoe-finance-tabs { display: flex; gap: 8px; }
+.zoe-finance-form { display: flex; flex-direction: column; gap: 10px; }
+.zoe-finance-table { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+.zoe-finance-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr; gap: 8px; align-items: center; padding: 9px 10px; border-radius: 7px; font-size: 13px; }
+.zoe-finance-row--head { background: #111118; color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+.zoe-finance-row:not(.zoe-finance-row--head) { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05); }
+.zoe-finance-positive { color: #86efac; font-weight: 600; }
+.zoe-finance-negative { color: #fca5a5; font-weight: 600; }
+
+/* Play */
+.zoe-play { display: flex; flex-direction: column; gap: 12px; }
+.zoe-play-header { display: flex; align-items: center; justify-content: space-between; }
+.zoe-play-iframe { width: 100%; height: 600px; border: none; border-radius: 8px; background: #111; }
+.zoe-play-note { font-size: 12px; color: #6b7280; text-align: center; }
+
+/* Info */
+.zoe-info-list { padding-left: 20px; display: flex; flex-direction: column; gap: 10px; }
+.zoe-info-list li { color: #d1d5db; font-size: 14px; line-height: 1.6; }
+
+/* Support widget */
+.zoe-support { position: fixed; bottom: 24px; right: 24px; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.zoe-support-trigger { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 50px; background: #f5c518; color: #111; font-weight: 700; font-size: 13px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(245,197,24,.4); transition: transform .15s; font-family: inherit; }
+.zoe-support-trigger:hover { transform: translateY(-2px); }
+.zoe-support-trigger em { background: #e53e3e; color: #fff; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-style: normal; font-weight: 700; }
+.zoe-support-panel { width: 320px; border-radius: 12px; background: #1e1e2a; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 8px 40px rgba(0,0,0,.6); display: flex; flex-direction: column; overflow: hidden; }
+.zoe-support-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: #f5c518; color: #111; }
+.zoe-support-header strong { display: block; font-size: 14px; }
+.zoe-support-header span   { display: block; font-size: 11px; opacity: .7; }
+.zoe-support-messages { flex: 1; max-height: 300px; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.zoe-support-message { display: flex; flex-direction: column; gap: 3px; max-width: 85%; }
+.zoe-support-message p { margin: 0; font-size: 13px; padding: 8px 10px; border-radius: 8px; line-height: 1.4; }
+.zoe-support-message span { font-size: 10px; color: #6b7280; }
+.zoe-support-message--user { align-self: flex-end; }
+.zoe-support-message--user p { background: rgba(245,197,24,.15); color: #f9fafb; border-radius: 8px 8px 2px 8px; }
+.zoe-support-message--agent { align-self: flex-start; }
+.zoe-support-message--agent p { background: #111118; color: #e5e7eb; border-radius: 8px 8px 8px 2px; }
+.zoe-support-agent { font-size: 10px; color: #f5c518; font-weight: 600; }
+.zoe-support-input { display: flex; gap: 6px; padding: 10px; border-top: 1px solid rgba(255,255,255,.07); }
+.zoe-support-input .zoe-input { flex: 1; }
+
+/* Staff support */
+.zoe-support-admin { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 12px; min-height: 500px; }
+@media(max-width:900px){ .zoe-support-admin { grid-template-columns: 1fr; } }
+.zoe-support-admin-list { display: flex; flex-direction: column; gap: 4px; background: #1e1e2a; border-radius: 10px; border: 1px solid rgba(255,255,255,.07); padding: 10px; overflow-y: auto; max-height: 600px; }
+.zoe-support-admin-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px; border-radius: 8px; border: 1px solid transparent; background: transparent; color: #e5e7eb; cursor: pointer; text-align: left; transition: all .15s; font-family: inherit; width: 100%; }
+.zoe-support-admin-item:hover { background: rgba(255,255,255,.04); }
+.zoe-support-admin-item--active { background: rgba(245,197,24,.08); border-color: rgba(245,197,24,.3); }
+.zoe-support-admin-item strong { display: block; font-size: 13px; }
+.zoe-support-admin-item span   { display: block; font-size: 11px; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.zoe-support-admin-chat { display: flex; flex-direction: column; background: #1e1e2a; border-radius: 10px; border: 1px solid rgba(255,255,255,.07); overflow: hidden; }
+.zoe-support-admin-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.zoe-support-admin-header strong { display: block; font-size: 14px; color: #f9fafb; }
+.zoe-support-admin-header span   { display: block; font-size: 12px; color: #6b7280; }
+.zoe-support-admin-messages { flex: 1; max-height: 340px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.zoe-support-admin-quick-panel { padding: 10px 14px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-direction: column; gap: 8px; }
+.zoe-support-admin-quick-head strong { font-size: 12px; color: #e5e7eb; }
+.zoe-support-admin-quick-head span   { font-size: 11px; color: #6b7280; margin-left: 6px; }
+.zoe-support-admin-quick { display: flex; flex-wrap: wrap; gap: 6px; }
+.zoe-support-admin-quick-form { display: flex; gap: 6px; }
+.zoe-support-admin-input { display: flex; gap: 6px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,.07); }
+.zoe-support-admin-input .zoe-input { flex: 1; }
+
+/* Footer */
+.zoe-footer { padding: 24px; border-top: 1px solid rgba(255,255,255,.06); background: #1a1a24; font-size: 12px; color: #6b7280; }
+.zoe-footer-top { display: flex; gap: 40px; margin-bottom: 16px; flex-wrap: wrap; }
+.zoe-footer-col h4 { margin: 0 0 8px; font-size: 13px; color: #e5e7eb; }
+.zoe-footer-col a { display: block; margin-bottom: 4px; color: #6b7280; cursor: pointer; transition: color .15s; }
+.zoe-footer-col a:hover { color: #f5c518; }
+.zoe-footer-note { margin: 0; opacity: .7; line-height: 1.6; }
+
+/* Admin standalone (no sidebar) */
+.zoe-admin-standalone { min-height: 100vh; background: #111118; color: #e5e7eb; font-family: Inter,system-ui,sans-serif; display: flex; flex-direction: column; }
+.zoe-admin-standalone-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: #1a1a24; border-bottom: 1px solid rgba(255,255,255,.07); }
+.zoe-admin-standalone-header .logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 900; color: #fff; text-decoration: none; }
+.zoe-admin-standalone-header .logo span { color: #f5c518; }
+.zoe-admin-standalone-body { display: flex; flex: 1; }
+.zoe-admin-standalone-side { width: 220px; min-width: 220px; background: #1a1a24; border-right: 1px solid rgba(255,255,255,.07); padding: 16px 10px; display: flex; flex-direction: column; gap: 4px; }
+.zoe-admin-standalone-content { flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+.zoe-admin-standalone-link { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; text-decoration: none; color: #9ca3af; font-size: 13px; transition: all .15s; border: 1px solid transparent; }
+.zoe-admin-standalone-link:hover { background: rgba(255,255,255,.05); color: #e5e7eb; }
+.zoe-admin-standalone-link--active { background: rgba(245,197,24,.1); color: #f5c518; font-weight: 600; border-color: rgba(245,197,24,.3); }
+.zoe-banner-thumb { width: 64px; height: 36px; object-fit: cover; border-radius: 6px; }
+
+/* ===== PRO FOOTER ===== */
+.zoe-footer-pro { background: #0d0d12; border-top: 1px solid rgba(255,255,255,.06); font-size: 13px; color: #6b7280; }
+.zoe-footer-cols { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 32px; padding: 40px 32px 32px; }
+@media(max-width:900px){ .zoe-footer-cols { grid-template-columns: repeat(2,1fr); gap: 24px; padding: 24px 16px; } }
+@media(max-width:500px){ .zoe-footer-cols { grid-template-columns: 1fr; } }
+.zoe-footer-col-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: #f9fafb; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+.zoe-footer-link { display: block; color: #6b7280; text-decoration: none; padding: 3px 0; font-size: 13px; transition: color .15s, padding-left .15s; }
+.zoe-footer-link:hover { color: #f5c518; padding-left: 4px; }
+.zoe-footer-divider { height: 2px; background: linear-gradient(90deg, transparent 5%, #c9a84c 30%, #f5c518 50%, #c9a84c 70%, transparent 95%); opacity: .6; margin: 0 32px; }
+.zoe-footer-sponsors { padding: 28px 32px; text-align: center; border-top: 1px solid rgba(255,255,255,.04); }
+.zoe-footer-sponsors-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: #4b5563; margin-bottom: 16px; }
+.zoe-footer-sponsors-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.zoe-footer-sponsor-card { display: flex; flex-direction: column; align-items: center; padding: 14px 20px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; min-width: 140px; transition: border-color .15s; }
+.zoe-footer-sponsor-card:hover { border-color: rgba(245,197,24,.3); }
+.zoe-footer-sponsor-icon { font-size: 28px; margin-bottom: 6px; }
+.zoe-footer-sponsor-name { font-size: 12px; font-weight: 700; color: #e5e7eb; }
+.zoe-footer-sponsor-desc { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.zoe-footer-payments { padding: 20px 32px; border-top: 1px solid rgba(255,255,255,.04); text-align: center; }
+.zoe-footer-payments-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: #4b5563; margin-bottom: 12px; }
+.zoe-footer-payments-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.zoe-footer-payment-badge { padding: 6px 14px; border-radius: 6px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); font-size: 12px; font-weight: 600; color: #9ca3af; }
+.zoe-footer-license { padding: 20px 32px 28px; border-top: 1px solid rgba(255,255,255,.04); text-align: center; }
+.zoe-footer-license-badges { display: flex; justify-content: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.zoe-footer-license-badge { padding: 8px 16px; border-radius: 8px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); font-size: 12px; font-weight: 700; color: #9ca3af; }
+.zoe-footer-license-text { font-size: 11px; color: #4b5563; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+
+/* Footer license logos */
+.zoe-footer-license-logos { display: flex; justify-content: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.zoe-footer-license-logo-wrap { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; text-decoration: none; transition: border-color .15s; }
+.zoe-footer-license-logo-wrap:hover { border-color: rgba(245,197,24,.3); }
+.zoe-footer-license-img { height: 40px; object-fit: contain; display: none; }
+.zoe-footer-license-badge-img { display: flex; align-items: center; gap: 8px; }
+
+/* Banner image fix */
+.zoe-banner-image { width:100%; height:100%; object-fit:cover; object-position:center; position:absolute; top:0; left:0; }
+.zoe-banner-slider { min-height:unset; }

@@ -1,0 +1,23 @@
+:root {
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+  font: 14px/1.5 var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #111118;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4 { font-family: var(--sans); }
+button { font-family: inherit; }
+a { text-decoration: none; }
