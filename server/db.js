@@ -61,6 +61,7 @@ try { db.exec(`ALTER TABLE users ADD COLUMN tc TEXT`); } catch {}
 try { db.exec(`ALTER TABLE users ADD COLUMN verified INTEGER DEFAULT 0`); } catch {}
 try { db.exec(`ALTER TABLE users ADD COLUMN otp TEXT`); } catch {}
 try { db.exec(`ALTER TABLE users ADD COLUMN otp_expires INTEGER`); } catch {}
+try { db.exec(`ALTER TABLE users ADD COLUMN otp_request_id TEXT`); } catch {}
 try { db.exec(`ALTER TABLE transactions ADD COLUMN method TEXT`); } catch {}
 try { db.exec(`ALTER TABLE transactions ADD COLUMN status TEXT DEFAULT 'pending'`); } catch {}
 try { db.exec(`ALTER TABLE transactions ADD COLUMN note TEXT`); } catch {}

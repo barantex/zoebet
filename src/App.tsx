@@ -10,6 +10,7 @@ import { AdminUsersPage } from './admin/AdminUsers'
 import { AdminFinancePage } from './admin/AdminFinance'
 import { AdminWheelCodesPage } from './admin/AdminWheelCodes'
 import { AdminWheelPage } from './admin/AdminWheel'
+import { AdminSettingsPage } from './admin/AdminSettings'
 import { AdminLoginPage } from './pages/AdminLogin'
 import { ZoeFooter } from './components/ZoeFooter'
 import { ZoeHeader } from './components/ZoeHeader'
@@ -57,6 +58,7 @@ function Boot() {
         element={<ProtectedRoute requireAdmin loginPath="/admin/login"><AdminLayout /></ProtectedRoute>}
       >
         <Route index element={<AdminDashboardPage />} />
+        <Route path="settings" element={<AdminSettingsPage />} />
         <Route path="users" element={<AdminUsersPage />} />
         <Route path="finance" element={<AdminFinancePage />} />
         <Route path="wheel" element={<AdminWheelPage />} />

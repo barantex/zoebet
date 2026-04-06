@@ -1,24 +1,28 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
-
-const TICKER_ITEMS = [
-  '🎁 Hoş Geldin Bonusu — İlk yatırımına %100 bonus, 50.000 ₺ ye kadar',
-  '🎰 1000DENEME Kodu sadece Slot Oyunlarında Geçerlidir',
-  '💰 Günlük 1.000.000 ₺ Çekim İmkânı',
-  '🏆 Nakit 50₺ Kod: 50CASH',
-  '⚡ Canlı Bahiste Anlık Oranlar — Kaçırma!',
-  '🎲 Canlı Casino — 7/24 Kesintisiz Oyun',
-]
+import { useEffect, useState } from 'react'
+import { getSiteSettings } from '../lib/siteSettings'
 
 export function ZoeHeader() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [tickerItems, setTickerItems] = useState([
+    '🎁 Hoş Geldin Bonusu — İlk yatırımına %100 bonus',
+    '🎰 1000DENEME Kodu sadece Slot Oyunlarında Geçerlidir',
+    '💰 Günlük 1.000.000 ₺ Çekim İmkânı',
+    '🏆 Nakit 50₺ Kod: 50CASH',
+    '⚡ Canlı Bahiste Anlık Oranlar',
+  ])
+
+  useEffect(() => {
+    getSiteSettings().then(s => { if (s.ticker_items?.length) setTickerItems(s.ticker_items) })
+  }, [])
 
   return (
     <>
       <div className="zoe-ticker">
         <div className="zoe-ticker-track">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+          {[...tickerItems, ...tickerItems].map((item, i) => (
             <span key={i} className="zoe-ticker-item">📢 {item}</span>
           ))}
         </div>

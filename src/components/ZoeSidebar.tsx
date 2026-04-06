@@ -1,5 +1,7 @@
 ﻿import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
+import { useEffect, useState } from 'react'
+import { getSiteSettings } from '../lib/siteSettings'
 
 type Item = { to: string; label: string; icon: string; badge?: string }
 
@@ -41,11 +43,30 @@ function SideLink({ item }: { item: Item }) {
 
 export function ZoeSidebar() {
   const { isAdmin } = useAuth()
+  const [logoIcon, setLogoIcon] = useState('⚡')
+  const [logoText, setLogoText] = useState('BAHİS')
+  const [logoSub, setLogoSub] = useState('MOSCO')
+  const [logoUrl, setLogoUrl] = useState('')
+
+  useEffect(() => {
+    getSiteSettings().then(s => {
+      setLogoIcon(s.site_logo_icon || '⚡')
+      const text = s.site_logo_text || 'BAHİSMOSCO'
+      const mid = Math.ceil(text.length / 2)
+      setLogoText(text.slice(0, mid))
+      setLogoSub(text.slice(mid))
+      setLogoUrl(s.site_logo_url || '')
+    })
+  }, [])
+
   return (
     <aside className="zoe-sidebar">
       <Link to="/" className="zoe-sidebar-logo">
-        <span className="zoe-logo-icon">⚡</span>
-        <span className="zoe-logo-text">BAHİS<span>MOSCO</span></span>
+        {logoUrl
+          ? <img src={logoUrl} alt="logo" style={{ height: 32, objectFit: 'contain' }} />
+          : <span className="zoe-logo-icon">{logoIcon}</span>
+        }
+        <span className="zoe-logo-text">{logoText}<span>{logoSub}</span></span>
       </Link>
       <nav className="zoe-side-nav">
         <div className="zoe-side-group-label">OYUNLAR</div>

@@ -20,6 +20,7 @@ app.use('/api/dragon', require('./routes/dragon'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/admin-finance', require('./routes/finance-admin'));
 app.use('/api/wheel', require('./routes/wheel'));
+app.use('/api/settings', require('./routes/settings'));
 
 // PRODUCTION: Serve static files AFTER API routes
 const distPath = path.join(__dirname, '../dist');

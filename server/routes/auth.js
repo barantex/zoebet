@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 const crypto = require('crypto');
-const { sendSms, generateOtp } = require('../sms');
+const { sendOtp, verifyOtp, generateOtp } = require('../sms');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_key';
 
@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
         .run(id, normalEmail, hashPassword(password), role, name.trim(), surname.trim(), phone.trim(), tc.trim(), otp, otpExpires);
     }
 
-    await sendSms(phone.trim(), `BahisMosco doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
+    await sendOtp(phone.trim(), otp);
 
     res.json({ ok: true, message: 'SMS gönderildi. Telefon numaranızı doğrulayın.' });
   } catch (err) {
@@ -98,7 +98,7 @@ router.post('/resend-otp', async (req, res) => {
   db.prepare('UPDATE users SET otp=?, otp_expires=? WHERE id=?').run(otp, otpExpires, user.id);
 
   try {
-    await sendSms(normalPhone, `BahisMosco doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
+    await sendOtp(normalPhone, otp);
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: 'SMS gönderilemedi: ' + err.message });
@@ -139,4 +139,5 @@ router.get('/me', (req, res) => {
 });
 
 module.exports = router;
+
 
