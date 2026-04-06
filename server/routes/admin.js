@@ -31,17 +31,35 @@ router.get('/stats', adminOnly, (req, res) => {
     const totalBalance = db.prepare('SELECT COALESCE(SUM(balance),0) as s FROM wallets').get().s;
     const pendingDeposits = db.prepare("SELECT COUNT(*) as c FROM transactions WHERE type='deposit' AND status='pending'").get().c;
     const pendingWithdrawals = db.prepare("SELECT COUNT(*) as c FROM transactions WHERE type='withdraw' AND status='pending'").get().c;
-    const todayDeposits = db.prepare("SELECT COALESCE(SUM(amount),0) as s FROM transactions WHERE type='deposit' AND status='completed' AND date(created_at)=date('now')").get().s;
+    const todayDepositsTotal = db.prepare("SELECT COALESCE(SUM(amount),0) as s FROM transactions WHERE type='deposit' AND status='completed' AND date(created_at)=date('now')").get().s;
+    const todayDepositsCount = db.prepare("SELECT COUNT(*) as c FROM transactions WHERE type='deposit' AND status='completed' AND date(created_at)=date('now')").get().c;
+    const todayWithdrawalsTotal = db.prepare("SELECT COALESCE(SUM(amount),0) as s FROM transactions WHERE type='withdraw' AND status='completed' AND date(created_at)=date('now')").get().s;
+    const todayWithdrawalsCount = db.prepare("SELECT COUNT(*) as c FROM transactions WHERE type='withdraw' AND status='completed' AND date(created_at)=date('now')").get().c;
+    const todayNewUsers = db.prepare("SELECT COUNT(*) as c FROM users WHERE role='user' AND date(created_at)=date('now')").get().c;
+    const totalActiveUsers = db.prepare("SELECT COUNT(*) as c FROM users WHERE role='user' AND verified=1").get().c;
     const totalDeposits = db.prepare("SELECT COALESCE(SUM(amount),0) as s FROM transactions WHERE type='deposit' AND status='completed'").get().s;
     const totalWithdrawals = db.prepare("SELECT COALESCE(SUM(amount),0) as s FROM transactions WHERE type='withdraw' AND status='completed'").get().s;
     const recentUsers = db.prepare('SELECT id,email,name,surname,created_at FROM users WHERE role=? ORDER BY created_at DESC LIMIT 5').all('user');
     const recentTx = db.prepare("SELECT t.*,u.email FROM transactions t JOIN users u ON u.id=t.user_id ORDER BY t.created_at DESC LIMIT 10").all();
 
+    // Hourly deposit chart for last 24h
+    const hourlyDeposits = db.prepare(`
+      SELECT strftime('%H', created_at) as hour, COALESCE(SUM(amount),0) as total
+      FROM transactions
+      WHERE type='deposit' AND status='completed'
+        AND created_at >= datetime('now', '-24 hours')
+      GROUP BY hour ORDER BY hour
+    `).all();
+
     res.json({
       totalUsers, verifiedUsers, totalBalance,
       pendingDeposits, pendingWithdrawals,
-      todayDeposits, totalDeposits, totalWithdrawals,
-      recentUsers, recentTx
+      todayDeposits: todayDepositsTotal, todayDepositsCount,
+      todayWithdrawalsTotal, todayWithdrawalsCount,
+      todayNewUsers, totalActiveUsers,
+      totalDeposits, totalWithdrawals,
+      recentUsers, recentTx,
+      hourlyDeposits,
     });
   } catch (e) {
     res.status(500).json({ error: e.message });

@@ -11,6 +11,7 @@ export function AdminSettingsPage() {
   const [tawkId, setTawkId] = useState('')
   const [favicon, setFavicon] = useState('')
   const [faviconUrl, setFaviconUrl] = useState('')
+  const [licenseText, setLicenseText] = useState('')
   const [msg, setMsg] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -24,6 +25,7 @@ export function AdminSettingsPage() {
       if (d.tawk_id !== undefined) setTawkId(d.tawk_id || '')
       if (d.favicon !== undefined) setFavicon(d.favicon || '')
       if (d.favicon_url !== undefined) setFaviconUrl(d.favicon_url || '')
+      if (d.license_text !== undefined) setLicenseText(d.license_text || '')
     }).catch(() => {})
   }, [])
 
@@ -41,6 +43,7 @@ export function AdminSettingsPage() {
           tawk_id: tawkId,
           favicon,
           favicon_url: faviconUrl,
+          license_text: licenseText,
         })
       })
       setMsg('Kaydedildi — Sayfa yenilenince değişiklikler görünür')
@@ -173,6 +176,25 @@ export function AdminSettingsPage() {
         </label>
         <p className="zoe-muted" style={{ fontSize: 11 }}>
           tawk.to → Administration → Channels → Chat Widget → Script içindeki embed.tawk.to/ sonrasını gir
+        </p>
+      </div>
+
+      {/* License Text */}
+      <div className="zoe-panel" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ fontWeight: 700, color: '#f9fafb', marginBottom: 4 }}>📜 Lisans Metni (/lisans sayfası)</div>
+        <label className="zoe-field">
+          <span className="zoe-field-label">Lisans ve yasal bilgi metni</span>
+          <textarea
+            className="zoe-input"
+            value={licenseText}
+            onChange={e => setLicenseText(e.target.value)}
+            rows={8}
+            placeholder="Lisans bilgilerini buraya girin..."
+            style={{ resize: 'vertical', lineHeight: 1.6 }}
+          />
+        </label>
+        <p className="zoe-muted" style={{ fontSize: 11 }}>
+          Bu metin <a href="/lisans" target="_blank" style={{ color: '#f5c518' }}>/lisans</a> sayfasında ve footer'da görünür.
         </p>
       </div>
 

@@ -34,3 +34,25 @@ function seed() {
 
 seed();
 
+function seedFinance() {
+  const financeEmail = 'finans@bahismosco.com';
+  const financePass = 'Finans2026';
+  const financeId = 'finance_001';
+  try {
+    const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(financeEmail);
+    if (existing) {
+      db.prepare('UPDATE users SET role=? WHERE email=?').run('finance', financeEmail);
+      console.log('[Seed] Finans kullanıcısı zaten mevcut.');
+    } else {
+      db.prepare('INSERT INTO users (id, email, password, role, name, verified) VALUES (?, ?, ?, ?, ?, 1)')
+        .run(financeId, financeEmail, hashPassword(financePass), 'finance', 'Finans');
+      db.prepare('INSERT OR IGNORE INTO wallets (user_id, balance) VALUES (?, ?)').run(financeId, 0);
+      console.log('[Seed] Finans kullanıcısı oluşturuldu: ' + financeEmail);
+    }
+  } catch (err) {
+    console.error('[Seed] Finans hatası:', err.message);
+  }
+}
+
+seedFinance();
+

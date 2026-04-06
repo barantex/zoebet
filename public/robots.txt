@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /finans-panel
+Disallow: /finans-panel/
+Disallow: /api/
+Disallow: /wallet
+Disallow: /support-team
+
+Sitemap: https://bahismosco.com/sitemap.xml

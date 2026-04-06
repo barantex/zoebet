@@ -19,6 +19,7 @@ app.use('/api/finance', require('./routes/finance'));
 app.use('/api/dragon', require('./routes/dragon'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/admin-finance', require('./routes/finance-admin'));
+app.use('/api/finance-panel', require('./routes/finance-panel'));
 app.use('/api/wheel', require('./routes/wheel'));
 app.use('/api/settings', require('./routes/settings'));
 app.use('/api/banners', require('./routes/banners'));

@@ -124,3 +124,8 @@ try {
   )`);
 } catch {}
 
+// Finance role support — role column already exists, just ensure 'finance' is a valid value
+// No schema change needed; role is a TEXT column. Finance users have role='finance'.
+// Ensure site_settings table exists for license text
+try { db.exec(`CREATE TABLE IF NOT EXISTS site_settings (key TEXT PRIMARY KEY, value TEXT)`); } catch {}
+

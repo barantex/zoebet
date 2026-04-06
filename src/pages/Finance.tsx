@@ -3,7 +3,12 @@ import { useAuth } from '../auth/AuthContext'
 import { fetchApi } from '../api/client'
 import type { Transaction } from '../lib/types'
 
-type Iban = { id: string; bank_name: string; account_name: string; iban: string }
+type Iban = { id: string; bank_name: string; account_name: string; iban: string; logo?: string; active?: number }
+
+function periodTotal(txs: Transaction[], type: 'deposit' | 'withdraw', days: number) {
+  const cutoff = Date.now() - days * 86400000
+  return txs.filter(t => t.type === type && t.status === 'completed' && new Date(t.created_at || (t as any).createdAt).getTime() > cutoff).reduce((a, t) => a + t.amount, 0)
+}
 
 export function FinancePage() {
   const { user } = useAuth()
@@ -15,6 +20,7 @@ export function FinancePage() {
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
   const [balance, setBalance] = useState(0)
+  const [displayBalance, setDisplayBalance] = useState(0)
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [ibans, setIbans] = useState<Iban[]>([])
   const [loading, setLoading] = useState(false)
@@ -32,6 +38,24 @@ export function FinancePage() {
     } catch {}
   }
 
+  // Animate balance counter
+  useEffect(() => {
+    if (balance === displayBalance) return
+    const diff = balance - displayBalance
+    const step = diff / 20
+    let current = displayBalance
+    const timer = setInterval(() => {
+      current += step
+      if ((step > 0 && current >= balance) || (step < 0 && current <= balance)) {
+        setDisplayBalance(balance)
+        clearInterval(timer)
+      } else {
+        setDisplayBalance(Math.round(current))
+      }
+    }, 30)
+    return () => clearInterval(timer)
+  }, [balance, displayBalance])
+
   useEffect(() => { if (user) load() }, [user])
 
   if (!user) {
@@ -43,19 +67,20 @@ export function FinancePage() {
     )
   }
 
+  const pendingTxs = transactions.filter(t => t.status === 'pending')
+
   async function handleSubmit() {
     const parsed = Number(amount.replace(',', '.'))
     if (!Number.isFinite(parsed) || parsed <= 0) return setError('Geçerli bir tutar gir.')
     if (tab === 'withdraw' && parsed > balance) return setError('Yetersiz bakiye.')
+    if (tab === 'withdraw' && parsed < 100) return setError('Minimum çekim tutarı ₺100.')
 
     setLoading(true); setError(null); setSuccess(null)
     try {
       await fetchApi('/finance/transaction', {
         method: 'POST',
         body: JSON.stringify({
-          type: tab,
-          amount: parsed,
-          method,
+          type: tab, amount: parsed, method,
           reference_id: reference || undefined,
           withdraw_iban: withdrawIban || undefined,
         }),
@@ -76,22 +101,38 @@ export function FinancePage() {
         <p>Bakiyeni yönet, işlem geçmişini takip et.</p>
       </div>
 
-      {/* Balance */}
-      <div className="zoe-panel" style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>
-        <div>
-          <div style={{ fontSize: 12, color: '#6b7280' }}>Toplam Bakiye</div>
-          <div style={{ fontSize: 36, fontWeight: 900, color: '#f5c518' }}>₺{balance.toLocaleString('tr-TR')}</div>
-        </div>
-        <div style={{ display: 'flex', gap: 16 }}>
-          <div style={{ padding: '10px 16px', background: '#111118', borderRadius: 8, border: '1px solid rgba(255,255,255,.06)' }}>
-            <div style={{ fontSize: 11, color: '#6b7280' }}>Toplam Yatırım</div>
-            <div style={{ fontWeight: 700, color: '#86efac' }}>₺{transactions.filter(t => t.type === 'deposit' && t.status === 'completed').reduce((a, t) => a + t.amount, 0).toLocaleString('tr-TR')}</div>
+      {/* Balance hero */}
+      <div className="zoe-panel" style={{ background: 'linear-gradient(135deg,#1e1e2a 0%,#16162a 100%)', border: '1px solid rgba(245,197,24,.2)' }}>
+        <div style={{ display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          <div>
+            <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 4 }}>Toplam Bakiye</div>
+            <div style={{ fontSize: 42, fontWeight: 900, color: '#f5c518', letterSpacing: '-.02em', lineHeight: 1 }}>
+              ₺{displayBalance.toLocaleString('tr-TR')}
+            </div>
+            {pendingTxs.length > 0 && (
+              <div style={{ marginTop: 8, display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 10px', borderRadius: 6, background: 'rgba(245,197,24,.1)', border: '1px solid rgba(245,197,24,.3)', fontSize: 12, color: '#f5c518' }}>
+                ⏳ {pendingTxs.length} işlem onay bekliyor
+              </div>
+            )}
           </div>
-          <div style={{ padding: '10px 16px', background: '#111118', borderRadius: 8, border: '1px solid rgba(255,255,255,.06)' }}>
-            <div style={{ fontSize: 11, color: '#6b7280' }}>Toplam Çekim</div>
-            <div style={{ fontWeight: 700, color: '#fca5a5' }}>₺{transactions.filter(t => t.type === 'withdraw' && t.status === 'completed').reduce((a, t) => a + t.amount, 0).toLocaleString('tr-TR')}</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
+            {[
+              { label: 'Günlük Yatırım', value: periodTotal(transactions, 'deposit', 1), color: '#86efac' },
+              { label: 'Haftalık Yatırım', value: periodTotal(transactions, 'deposit', 7), color: '#86efac' },
+              { label: 'Aylık Yatırım', value: periodTotal(transactions, 'deposit', 30), color: '#86efac' },
+            ].map(k => (
+              <div key={k.label} style={{ padding: '10px 14px', background: '#111118', borderRadius: 8, border: '1px solid rgba(255,255,255,.06)', minWidth: 110 }}>
+                <div style={{ fontSize: 10, color: '#6b7280', marginBottom: 3 }}>{k.label}</div>
+                <div style={{ fontWeight: 700, color: k.color, fontSize: 15 }}>₺{k.value.toLocaleString('tr-TR')}</div>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* Withdrawal limit info */}
+      <div style={{ padding: '10px 14px', borderRadius: 8, background: 'rgba(59,130,246,.08)', border: '1px solid rgba(59,130,246,.2)', fontSize: 12, color: '#93c5fd', display: 'flex', gap: 8, alignItems: 'center' }}>
+        ℹ️ Minimum çekim tutarı <strong>₺100</strong>. Çekim talepleri 24 saat içinde işleme alınır.
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -107,8 +148,8 @@ export function FinancePage() {
               <div style={{ fontSize: 12, color: '#f5c518', fontWeight: 700, marginBottom: 8 }}>🏦 Yatırım Yapılacak Hesaplar</div>
               {activeIbans.map(ib => (
                 <div key={ib.id} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,.05)', display: 'flex', alignItems: 'center', gap: 10 }}>
-                  {(ib as any).logo
-                    ? <img src={(ib as any).logo} alt={ib.bank_name} style={{ width: 36, height: 36, objectFit: 'contain', background: '#fff', borderRadius: 6, padding: 3, flexShrink: 0 }} />
+                  {ib.logo
+                    ? <img src={ib.logo} alt={ib.bank_name} style={{ width: 36, height: 36, objectFit: 'contain', background: '#fff', borderRadius: 6, padding: 3, flexShrink: 0 }} />
                     : <span style={{ fontSize: 24, flexShrink: 0 }}>🏦</span>
                   }
                   <div>
@@ -175,9 +216,9 @@ export function FinancePage() {
                 <span>₺{tx.amount?.toLocaleString('tr-TR')}</span>
                 <span style={{ fontSize: 11 }}>{tx.method || '—'}</span>
                 <span className={`zoe-badge ${tx.status === 'completed' ? 'zoe-badge--on' : tx.status === 'rejected' ? 'zoe-badge--off' : ''}`}>
-                  {tx.status === 'completed' ? 'Onaylandı' : tx.status === 'rejected' ? 'Reddedildi' : 'Bekliyor'}
+                  {tx.status === 'completed' ? 'Onaylandı' : tx.status === 'rejected' ? 'Reddedildi' : '⏳ Bekliyor'}
                 </span>
-                <span style={{ fontSize: 11, color: '#6b7280' }}>{new Date(tx.created_at || tx.createdAt).toLocaleDateString('tr-TR')}</span>
+                <span style={{ fontSize: 11, color: '#6b7280' }}>{new Date(tx.created_at || (tx as any).createdAt).toLocaleDateString('tr-TR')}</span>
               </div>
             ))}
           </div>

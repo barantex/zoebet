@@ -124,6 +124,8 @@ export function ZoeFooter() {
           BahisMosco, Curaçao yasaları kapsamında lisanslı olarak faaliyet göstermektedir.
           Tüm hakları saklıdır. 18+ | Sorumlu Bahis |{' '}
           <Link to="/help/responsible" style={{ color: '#f5c518' }}>Sorumlu Bahis Politikası</Link>
+          {' | '}
+          <Link to="/lisans" style={{ color: '#f5c518' }}>Lisans Bilgileri</Link>
         </p>
       </div>
     </footer>

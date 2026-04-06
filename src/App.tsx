@@ -14,6 +14,8 @@ import { AdminWheelPage } from './admin/AdminWheel'
 import { AdminSettingsPage } from './admin/AdminSettings'
 import { AdminPasswordPage } from './admin/AdminPassword'
 import { AdminLoginPage } from './pages/AdminLogin'
+import { FinancePanelLoginPage } from './pages/FinancePanelLogin'
+import { FinancePanelPage } from './pages/FinancePanel'
 import { ZoeFooter } from './components/ZoeFooter'
 import { ZoeHeader } from './components/ZoeHeader'
 import { ZoeSidebar } from './components/ZoeSidebar'
@@ -28,6 +30,7 @@ import { CasinoPage, LiveCasinoPage, LivePage, PromotionsPage, SportsPage, Tourn
 import { StaffSupportPage } from './pages/StaffSupport'
 import { WheelCodePage } from './pages/WheelCode'
 import { WheelPage } from './pages/Wheel'
+import { LisansPage } from './pages/LisansPage'
 
 function App() {
   return (
@@ -53,6 +56,10 @@ function Boot() {
     <Routes>
       {/* Admin login — standalone */}
       <Route path="/admin/login" element={<AdminLoginPage />} />
+
+      {/* Finance Panel — standalone */}
+      <Route path="/finans-panel/login" element={<FinancePanelLoginPage />} />
+      <Route path="/finans-panel" element={<FinancePanelPage />} />
 
       {/* Admin — standalone, no sidebar */}
       <Route
@@ -104,6 +111,7 @@ function SiteLayout() {
             <Route path="/help/responsible" element={<ResponsiblePage />} />
             <Route path="/help/privacy" element={<PrivacyPage />} />
             <Route path="/help/terms" element={<TermsPage />} />
+            <Route path="/lisans" element={<LisansPage />} />
             <Route path="/support-team" element={<ProtectedRoute><StaffSupportPage /></ProtectedRoute>} />
             <Route path="*" element={
               <div className="zoe-panel">
