@@ -30,6 +30,7 @@ import { CasinoPage, LiveCasinoPage, LivePage, PromotionsPage, SportsPage, Tourn
 import { StaffSupportPage } from './pages/StaffSupport'
 import { WheelCodePage } from './pages/WheelCode'
 import { WheelPage } from './pages/Wheel'
+import { FinancePanelPage } from './pages/FinancePanel'
 import { LisansPage } from './pages/LisansPage'
 
 function App() {
@@ -54,6 +55,9 @@ function Boot() {
   }
   return (
     <Routes>
+      {/* Finance Panel — standalone */}
+      <Route path="/finance-panel" element={<FinancePanelPage />} />
+
       {/* Admin login — standalone */}
       <Route path="/admin/login" element={<AdminLoginPage />} />
 
