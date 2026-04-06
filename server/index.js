@@ -21,6 +21,7 @@ app.use('/api/admin', require('./routes/admin'));
 app.use('/api/admin-finance', require('./routes/finance-admin'));
 app.use('/api/wheel', require('./routes/wheel'));
 app.use('/api/settings', require('./routes/settings'));
+app.use('/api/banners', require('./routes/banners'));
 
 // PRODUCTION: Serve static files AFTER API routes
 const distPath = path.join(__dirname, '../dist');

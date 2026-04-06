@@ -5,7 +5,8 @@ import { AuthProvider } from './auth/AuthContext'
 import { useAuth } from './auth/AuthContext'
 import { ProtectedRoute } from './auth/ProtectedRoute'
 import { AdminLayout } from './admin/AdminLayout'
-import { AdminBannersPage, AdminGamesPage, AdminMatchesPage, AdminPromotionsPage } from './admin/AdminPages'
+import { AdminGamesPage, AdminMatchesPage, AdminPromotionsPage } from './admin/AdminPages'
+import { AdminBannersPage } from './admin/AdminBanners'
 import { AdminDashboardPage } from './admin/AdminDashboard'
 import { AdminUsersPage } from './admin/AdminUsers'
 import { AdminFinancePage } from './admin/AdminFinance'
@@ -16,7 +17,6 @@ import { AdminLoginPage } from './pages/AdminLogin'
 import { ZoeFooter } from './components/ZoeFooter'
 import { ZoeHeader } from './components/ZoeHeader'
 import { ZoeSidebar } from './components/ZoeSidebar'
-import { ZoeSupportWidget } from './components/ZoeSupportWidget'
 import { ensureSeeded } from './lib/seed'
 import { LoginPage, RegisterPage } from './pages/AuthPages'
 import { FinancePage } from './pages/Finance'
@@ -114,7 +114,6 @@ function SiteLayout() {
           </Routes>
         </main>
         <ZoeFooter />
-        <ZoeSupportWidget />
       </div>
     </div>
   )

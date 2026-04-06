@@ -67,6 +67,7 @@ try { db.exec(`ALTER TABLE transactions ADD COLUMN status TEXT DEFAULT 'pending'
 try { db.exec(`ALTER TABLE transactions ADD COLUMN note TEXT`); } catch {}
 try { db.exec(`CREATE TABLE IF NOT EXISTS ibans (id TEXT PRIMARY KEY, bank_name TEXT NOT NULL, account_name TEXT NOT NULL, iban TEXT NOT NULL, logo TEXT, active INTEGER DEFAULT 1, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`); } catch {}
 try { db.exec(`ALTER TABLE ibans ADD COLUMN logo TEXT`); } catch {}
+try { db.exec(`CREATE TABLE IF NOT EXISTS banners (id TEXT PRIMARY KEY, title TEXT, subtitle TEXT, image_url TEXT, link_url TEXT, active INTEGER DEFAULT 1, sort_order INTEGER DEFAULT 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`); } catch {}
 
 // Wheel codes table
 try {
