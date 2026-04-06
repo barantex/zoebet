@@ -109,7 +109,7 @@ export const DEFAULT_FAQ: FaqItem[] = [
 
 export const DEFAULT_SUPPORT: SupportItem[] = [
   { id: 's1', title: 'Canli Sohbet', description: '7/24 anlik destek icin sag alttaki sohbet butonunu kullan.', badge: 'Aktif' },
-  { id: 's2', title: 'E-posta', description: 'destek@zoebet.com adresine yazabilirsin.', badge: 'Aktif' },
+  { id: 's2', title: 'E-posta', description: 'destek@BahisMosco.com adresine yazabilirsin.', badge: 'Aktif' },
 ]
 
 export const DEFAULT_RESPONSIBLE: InfoBullet[] = [
@@ -139,8 +139,8 @@ type StoredUser = { id: string; email: string; role: string; password: string }
 
 export function ensureAdminUser(): void {
   const users = readJson<StoredUser[]>(usersKey, [])
-  if (users.some((u) => u.email === 'admin@zoebet.com')) return
-  writeJson(usersKey, [{ id: 'admin_1', email: 'admin@zoebet.com', role: 'admin', password: 'admin' }, ...users])
+  if (users.some((u) => u.email === 'admin@BahisMosco.com')) return
+  writeJson(usersKey, [{ id: 'admin_1', email: 'admin@BahisMosco.com', role: 'admin', password: 'admin' }, ...users])
 }
 
 export function ensureSeeded(): void {
@@ -155,3 +155,4 @@ export function ensureSeeded(): void {
   writeJson(KEYS.banners, defaultBanners)
   writeJson(seededFlagKey, true)
 }
+

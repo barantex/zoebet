@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 
@@ -35,7 +35,7 @@ export function AdminLoginPage() {
         borderRadius: 14, padding: 32, display: 'flex', flexDirection: 'column', gap: 16
       }}>
         <div style={{ textAlign: 'center', marginBottom: 8 }}>
-          <div style={{ fontSize: 32, fontWeight: 900, color: '#fff' }}>⚡ ZOE<span style={{ color: '#f5c518' }}>BET</span></div>
+          <div style={{ fontSize: 32, fontWeight: 900, color: '#fff' }}>⚡ BAHİS<span style={{ color: '#f5c518' }}>MOSCO</span></div>
           <div style={{ fontSize: 13, color: '#6b7280', marginTop: 4 }}>Back Office Girişi</div>
         </div>
 
@@ -44,7 +44,7 @@ export function AdminLoginPage() {
           <input
             style={{ borderRadius: 7, border: '1px solid rgba(255,255,255,.1)', background: '#111118', color: '#e5e7eb', padding: '9px 12px', fontSize: 13, outline: 'none', fontFamily: 'inherit' }}
             value={email} onChange={e => setEmail(e.target.value)}
-            placeholder="admin@zoebet.com" type="email"
+            placeholder="admin@bahismosco.com" type="email"
             onKeyDown={e => e.key === 'Enter' && handleLogin()}
           />
         </label>
@@ -80,3 +80,4 @@ export function AdminLoginPage() {
     </div>
   )
 }
+

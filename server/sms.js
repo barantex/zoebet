@@ -1,5 +1,5 @@
-const SMSEDGE_API_KEY = process.env.SMSEDGE_API_KEY || '';
-const SMSEDGE_FROM = process.env.SMSEDGE_FROM || 'ZoeBet';
+﻿const SMSEDGE_API_KEY = process.env.SMSEDGE_API_KEY || '';
+const SMSEDGE_FROM = process.env.SMSEDGE_FROM || 'BahisMosco';
 
 async function sendSms(to, text) {
   if (!SMSEDGE_API_KEY || SMSEDGE_API_KEY === 'YOUR_SMSEDGE_API_KEY') {
@@ -39,3 +39,4 @@ function generateOtp() {
 }
 
 module.exports = { sendSms, generateOtp };
+

@@ -1,4 +1,4 @@
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
+﻿import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 
 const NAV = [
@@ -21,7 +21,7 @@ export function AdminLayout() {
       {/* Top header */}
       <header className="zoe-admin-standalone-header">
         <Link to="/admin" className="logo">
-          ⚡ ZOE<span>BET</span> — Back Office
+          ⚡ BAHİS<span>MOSCO</span> — Back Office
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 12, color: '#9ca3af' }}>{user?.email}</span>
@@ -55,3 +55,4 @@ export function AdminLayout() {
     </div>
   )
 }
+

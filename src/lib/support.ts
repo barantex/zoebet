@@ -39,7 +39,7 @@ export function ensureThread(userId: string, userEmail: string): SupportThread {
         id: uid('msg'),
         from: 'agent',
         agentName: 'Zoe Destek',
-        text: 'Merhaba! Zoe Bet canlı destek hattına hoş geldiniz.',
+        text: 'Merhaba! BahisMosco canlı destek hattına hoş geldiniz.',
         at: nowTime(),
         createdAt: nowIso(),
       },
@@ -137,3 +137,4 @@ export function readQuickReplies(agentId: string): string[] {
 export function writeQuickReplies(agentId: string, replies: string[]): void {
   writeJson(`${QUICK_PREFIX}${agentId}`, replies)
 }
+

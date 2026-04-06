@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { fetchApi } from '../api/client'
 
 type Slice = { id: string; label: string; amount: number; color: string; probability: number; active: number }
@@ -147,7 +147,7 @@ function SlicesTab() {
 /* ── CODES TAB ── */
 function CodesTab() {
   const [codes, setCodes] = useState<Code[]>([])
-  const [codeVal, setCodeVal] = useState('ZOEBET')
+  const [codeVal, setCodeVal] = useState('BahisMosco')
   const [amount, setAmount] = useState('')
   const [count, setCount] = useState('1')
   const [expiresAt, setExpiresAt] = useState('')
@@ -165,7 +165,7 @@ function CodesTab() {
         body: JSON.stringify({ code: Number(count) === 1 ? codeVal.trim().toUpperCase() || undefined : undefined, amount: Number(amount), count: Number(count), expires_at: expiresAt || null }),
       })
       setNewCodes(d.codes); setMsg(`${d.codes.length} kod oluşturuldu`)
-      setAmount(''); setCount('1'); setExpiresAt(''); setCodeVal('ZOEBET'); load()
+      setAmount(''); setCount('1'); setExpiresAt(''); setCodeVal('BahisMosco'); load()
     } catch (e: any) { setMsg(e.message) }
   }
 
@@ -177,8 +177,8 @@ function CodesTab() {
         <div style={{ fontWeight: 700, color: '#f9fafb', marginBottom: 10, fontSize: 13 }}>+ Yeni Kod Oluştur</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 10, marginBottom: 10 }}>
           <label className="zoe-field">
-            <span className="zoe-field-label">Kod (tek kod için) — varsayılan: ZOEBET</span>
-            <input className="zoe-input" value={codeVal} onChange={e => setCodeVal(e.target.value.toUpperCase())} placeholder="ZOEBET"
+            <span className="zoe-field-label">Kod (tek kod için) — varsayılan: BahisMosco</span>
+            <input className="zoe-input" value={codeVal} onChange={e => setCodeVal(e.target.value.toUpperCase())} placeholder="BahisMosco"
               style={{ fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.1em' }} />
           </label>
           <label className="zoe-field"><span className="zoe-field-label">Bonus Tutarı (₺) *</span><input className="zoe-input" type="number" value={amount} onChange={e => setAmount(e.target.value)} placeholder="50" /></label>
@@ -254,3 +254,4 @@ export function AdminWheelPage() {
     </div>
   )
 }
+

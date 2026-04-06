@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -7,7 +7,7 @@ const authRoutes = require('./routes/auth');
 require('./seed'); // Ensure default admin exists
 // TODO: add finance and dragon routes
 
-const BRAND_NAME = 'ZoeBet';
+const BRAND_NAME = 'BahisMosco';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -31,5 +31,6 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`[Server] ZoeBet API is running on port ${PORT}`);
+  console.log(`[Server] BahisMosco API is running on port ${PORT}`);
 });
+

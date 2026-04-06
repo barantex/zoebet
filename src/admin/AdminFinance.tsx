@@ -61,7 +61,7 @@ function IbanManager() {
           </label>
           <label className="zoe-field">
             <span className="zoe-field-label">Hesap Sahibi *</span>
-            <input className="zoe-input" value={accountName} onChange={e => setAccountName(e.target.value)} placeholder="ZoeBet Ltd." />
+            <input className="zoe-input" value={accountName} onChange={e => setAccountName(e.target.value)} placeholder="BahisMosco Ltd." />
           </label>
           <label className="zoe-field">
             <span className="zoe-field-label">IBAN *</span>
@@ -214,3 +214,4 @@ export function AdminFinancePage() {
     </div>
   )
 }
+

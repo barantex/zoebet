@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+﻿import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 
 type Item = { to: string; label: string; icon: string; badge?: string }
@@ -45,7 +45,7 @@ export function ZoeSidebar() {
     <aside className="zoe-sidebar">
       <Link to="/" className="zoe-sidebar-logo">
         <span className="zoe-logo-icon">⚡</span>
-        <span className="zoe-logo-text">ZOE<span>BET</span></span>
+        <span className="zoe-logo-text">BAHİS<span>MOSCO</span></span>
       </Link>
       <nav className="zoe-side-nav">
         <div className="zoe-side-group-label">OYUNLAR</div>
@@ -64,3 +64,4 @@ export function ZoeSidebar() {
     </aside>
   )
 }
+

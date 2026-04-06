@@ -1,4 +1,4 @@
-const db = require('./db');
+﻿const db = require('./db');
 const crypto = require('crypto');
 
 function hashPassword(password) {
@@ -6,7 +6,7 @@ function hashPassword(password) {
 }
 
 function seed() {
-  const adminEmail = 'admin@zoebet.com';
+  const adminEmail = 'admin@BahisMosco.com';
   const adminPass = 'admin';
   const adminId = 'admin_001';
 
@@ -23,7 +23,7 @@ function seed() {
       db.prepare('INSERT INTO wallets (user_id, balance) VALUES (?, ?)')
         .run(adminId, 1000000);
 
-      console.log('[Seed] ZoeBet Varsayılan Admin hesabı oluşturuldu.');
+      console.log('[Seed] BahisMosco Varsayılan Admin hesabı oluşturuldu.');
       console.log(`Email: ${adminEmail}`);
       console.log(`Şifre: ${adminPass}`);
     }
@@ -33,3 +33,4 @@ function seed() {
 }
 
 seed();
+

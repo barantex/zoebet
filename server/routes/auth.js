@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const db = require('../db');
@@ -47,12 +47,12 @@ router.post('/register', async (req, res) => {
         .run(hashPassword(password), name.trim(), surname.trim(), phone.trim(), tc.trim(), otp, otpExpires, existing.id);
     } else {
       const id = uid('u');
-      const role = normalEmail === 'admin@zoebet.com' ? 'admin' : 'user';
+      const role = normalEmail === 'admin@BahisMosco.com' ? 'admin' : 'user';
       db.prepare('INSERT INTO users (id, email, password, role, name, surname, phone, tc, verified, otp, otp_expires) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)')
         .run(id, normalEmail, hashPassword(password), role, name.trim(), surname.trim(), phone.trim(), tc.trim(), otp, otpExpires);
     }
 
-    await sendSms(phone.trim(), `ZoeBet doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
+    await sendSms(phone.trim(), `BahisMosco doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
 
     res.json({ ok: true, message: 'SMS gönderildi. Telefon numaranızı doğrulayın.' });
   } catch (err) {
@@ -98,7 +98,7 @@ router.post('/resend-otp', async (req, res) => {
   db.prepare('UPDATE users SET otp=?, otp_expires=? WHERE id=?').run(otp, otpExpires, user.id);
 
   try {
-    await sendSms(normalPhone, `ZoeBet doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
+    await sendSms(normalPhone, `BahisMosco doğrulama kodunuz: ${otp} (10 dakika geçerli)`);
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: 'SMS gönderilemedi: ' + err.message });
@@ -139,3 +139,4 @@ router.get('/me', (req, res) => {
 });
 
 module.exports = router;
+

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { AuthProvider } from './auth/AuthContext'
@@ -42,7 +42,7 @@ function Boot() {
   if (loading) {
     return (
       <div style={{ minHeight: '100vh', background: '#111118', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ color: '#f5c518', fontSize: 32, fontWeight: 900 }}>⚡ ZoeBet</div>
+        <div style={{ color: '#f5c518', fontSize: 32, fontWeight: 900 }}>⚡ BahisMosco</div>
       </div>
     )
   }
@@ -115,3 +115,4 @@ function SiteLayout() {
     </div>
   )
 }
+

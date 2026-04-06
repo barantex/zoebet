@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+﻿import { useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 import { addMessage, ensureThread, readThreads } from '../lib/support'
@@ -15,7 +15,7 @@ export function ZoeSupportWidget() {
 
   const identity = useMemo(() => {
     if (user) return { id: user.id, email: user.email }
-    return { id: 'guest', email: 'guest@zoebet.com' }
+    return { id: 'guest', email: 'guest@BahisMosco.com' }
   }, [user])
 
   useEffect(() => {
@@ -115,3 +115,4 @@ export function ZoeSupportWidget() {
     </div>
   )
 }
+

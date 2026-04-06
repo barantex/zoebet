@@ -1,7 +1,7 @@
-const Database = require('better-sqlite3');
+﻿const Database = require('better-sqlite3');
 const path = require('path');
 
-const dbPath = path.join(__dirname, 'zoebet.sqlite');
+const dbPath = path.join(__dirname, 'BahisMosco.sqlite');
 const db = new Database(dbPath);
 
 db.pragma('journal_mode = WAL');
@@ -121,3 +121,4 @@ try {
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
 } catch {}
+

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+﻿import { useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { getLaunchUrlFromCode } from '../lib/games'
 import { readJson } from '../lib/storage'
@@ -42,7 +42,7 @@ export function PlayPage() {
         <div className="zoe-play-header">
           <div>
             <strong>{game?.name ?? code}</strong>
-            <span className="zoe-muted">{game?.provider ?? 'Zoe Bet'}</span>
+            <span className="zoe-muted">{game?.provider ?? 'BahisMosco'}</span>
           </div>
           {launchUrl ? (
             <div className="zoe-play-actions">
@@ -73,3 +73,4 @@ export function PlayPage() {
     </main>
   )
 }
+

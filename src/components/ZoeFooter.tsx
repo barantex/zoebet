@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 
 const COLS = [
   {
@@ -121,7 +121,7 @@ export function ZoeFooter() {
           </a>
         </div>
         <p className="zoe-footer-license-text">
-          ZoeBet, Curaçao yasaları kapsamında lisanslı olarak faaliyet göstermektedir.
+          BahisMosco, Curaçao yasaları kapsamında lisanslı olarak faaliyet göstermektedir.
           Tüm hakları saklıdır. 18+ | Sorumlu Bahis |{' '}
           <Link to="/help/responsible" style={{ color: '#f5c518' }}>Sorumlu Bahis Politikası</Link>
         </p>
@@ -129,3 +129,4 @@ export function ZoeFooter() {
     </footer>
   )
 }
+
