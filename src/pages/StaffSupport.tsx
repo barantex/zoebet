@@ -51,7 +51,7 @@ export function StaffSupportPage() {
 
   const myThreads = threads.filter((t) => t.assignedAgentId === currentUser.id)
   const activeThread = myThreads.find((t) => t.id === activeId) ?? myThreads[0]
-  const agentLabel = currentUser.name ?? currentUser.email
+  const agentLabel = (currentUser as any).name ?? currentUser.email
 
   function handleReply() {
     if (!activeThread || !reply.trim()) return
