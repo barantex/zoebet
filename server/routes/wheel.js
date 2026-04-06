@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const db = require('../db');
@@ -13,7 +13,7 @@ function adminOnly(req, res, next) {
     if (decoded.role !== 'admin') return res.status(403).json({ error: 'Admin yetkisi gerekli' });
     req.admin = decoded;
     next();
-  } catch { res.status(401).json({ error: 'Geçersiz token' }); }
+  } catch { res.status(401).json({ error: 'GeÃ§ersiz token' }); }
 }
 
 function authenticate(req, res, next) {
@@ -22,7 +22,7 @@ function authenticate(req, res, next) {
   try {
     req.user = jwt.verify(token, JWT_SECRET);
     next();
-  } catch { res.status(401).json({ error: 'Geçersiz token' }); }
+  } catch { res.status(401).json({ error: 'GeÃ§ersiz token' }); }
 }
 
 function uid() {
@@ -34,13 +34,13 @@ function randomCode(length = 8) {
   return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
 }
 
-/* ── WHEEL SLICES (public) ── */
+/* â”€â”€ WHEEL SLICES (public) â”€â”€ */
 router.get('/slices', (req, res) => {
   const slices = db.prepare('SELECT * FROM wheel_slices WHERE active=1 ORDER BY id').all();
   res.json({ slices });
 });
 
-/* ── ADMIN: manage slices ── */
+/* â”€â”€ ADMIN: manage slices â”€â”€ */
 router.get('/admin/slices', adminOnly, (req, res) => {
   const slices = db.prepare('SELECT * FROM wheel_slices ORDER BY id').all();
   res.json({ slices });
@@ -67,10 +67,10 @@ router.delete('/admin/slices/:id', adminOnly, (req, res) => {
   res.json({ ok: true });
 });
 
-/* ── USER: spin wheel ── */
+/* â”€â”€ USER: spin wheel â”€â”€ */
 router.post('/spin', authenticate, (req, res) => {
   const slices = db.prepare('SELECT * FROM wheel_slices WHERE active=1').all();
-  if (!slices.length) return res.status(400).json({ error: 'Çark dilimi yok' });
+  if (!slices.length) return res.status(400).json({ error: 'Ã‡ark dilimi yok' });
 
   // Check cooldown: 1 spin per 24h
   const lastSpin = db.prepare('SELECT created_at FROM wheel_spins WHERE user_id=? ORDER BY created_at DESC LIMIT 1').get(req.user.id);
@@ -78,7 +78,7 @@ router.post('/spin', authenticate, (req, res) => {
     const diff = Date.now() - new Date(lastSpin.created_at).getTime();
     if (diff < 24 * 60 * 60 * 1000) {
       const remaining = Math.ceil((24 * 60 * 60 * 1000 - diff) / 3600000);
-      return res.status(429).json({ error: `Sonraki çevirme hakkın ${remaining} saat sonra.`, cooldown: true });
+      return res.status(429).json({ error: `Sonraki Ã§evirme hakkÄ±n ${remaining} saat sonra.`, cooldown: true });
     }
   }
 
@@ -102,14 +102,14 @@ router.post('/spin', authenticate, (req, res) => {
       db.prepare('INSERT INTO wallets (user_id, balance) VALUES (?,?)').run(req.user.id, newBal);
     }
     db.prepare('INSERT INTO transactions (id, user_id, type, amount, method, status, note) VALUES (?,?,?,?,?,?,?)')
-      .run(`tx_${Date.now()}`, req.user.id, 'deposit', winner.amount, 'Çark', 'completed', `Çark ödülü: ${winner.label}`);
+      .run(`tx_${Date.now()}`, req.user.id, 'deposit', winner.amount, 'Ã‡ark', 'completed', `Ã‡ark Ã¶dÃ¼lÃ¼: ${winner.label}`);
   })();
 
   const wallet = db.prepare('SELECT balance FROM wallets WHERE user_id=?').get(req.user.id);
   res.json({ ok: true, winner, newBalance: wallet?.balance ?? 0 });
 });
 
-/* ── USER: spin status ── */
+/* â”€â”€ USER: spin status â”€â”€ */
 router.get('/spin/status', authenticate, (req, res) => {
   const lastSpin = db.prepare('SELECT created_at FROM wheel_spins WHERE user_id=? ORDER BY created_at DESC LIMIT 1').get(req.user.id);
   if (!lastSpin) return res.json({ canSpin: true });
@@ -129,10 +129,10 @@ router.get('/admin/codes', adminOnly, (req, res) => {
   res.json({ codes });
 });
 
-/* ── ADMIN: create codes ── */
+/* â”€â”€ ADMIN: create codes â”€â”€ */
 router.post('/admin/codes', adminOnly, (req, res) => {
   const { amount, count = 1, expires_at, code: customCode } = req.body;
-  if (!amount || amount <= 0) return res.status(400).json({ error: 'Geçerli bir tutar gir' });
+  if (!amount || amount <= 0) return res.status(400).json({ error: 'GeÃ§erli bir tutar gir' });
 
   const created = [];
   const num = Math.min(Number(count), 100);
@@ -144,7 +144,7 @@ router.post('/admin/codes', adminOnly, (req, res) => {
     try {
       db.prepare('INSERT INTO wheel_codes (id, code, amount, expires_at) VALUES (?,?,?,?)').run(id, code, Number(amount), expires_at || null);
       created.push({ id, code, amount });
-    } catch (e: any) {
+    } catch (e) {
       if (e.code === 'SQLITE_CONSTRAINT_UNIQUE') return res.status(400).json({ error: `"${code}" kodu zaten mevcut` });
       throw e;
     }
@@ -159,22 +159,22 @@ router.post('/admin/codes', adminOnly, (req, res) => {
   res.json({ ok: true, codes: created });
 });
 
-/* ── ADMIN: delete code ── */
+/* â”€â”€ ADMIN: delete code â”€â”€ */
 router.delete('/admin/codes/:id', adminOnly, (req, res) => {
   db.prepare('DELETE FROM wheel_codes WHERE id=?').run(req.params.id);
   res.json({ ok: true });
 });
 
-/* ── USER: redeem code ── */
+/* â”€â”€ USER: redeem code â”€â”€ */
 router.post('/redeem', authenticate, (req, res) => {
   const { code } = req.body;
   if (!code) return res.status(400).json({ error: 'Kod zorunlu' });
 
   const wc = db.prepare('SELECT * FROM wheel_codes WHERE code=?').get(code.trim().toUpperCase());
-  if (!wc) return res.status(404).json({ error: 'Geçersiz kod' });
-  if (wc.used) return res.status(400).json({ error: 'Bu kod daha önce kullanıldı' });
+  if (!wc) return res.status(404).json({ error: 'GeÃ§ersiz kod' });
+  if (wc.used) return res.status(400).json({ error: 'Bu kod daha Ã¶nce kullanÄ±ldÄ±' });
   if (wc.expires_at && new Date(wc.expires_at) < new Date()) {
-    return res.status(400).json({ error: 'Kodun süresi dolmuş' });
+    return res.status(400).json({ error: 'Kodun sÃ¼resi dolmuÅŸ' });
   }
 
   db.transaction(() => {
@@ -189,7 +189,7 @@ router.post('/redeem', authenticate, (req, res) => {
     }
     // Log transaction
     db.prepare('INSERT INTO transactions (id, user_id, type, amount, method, status, note) VALUES (?,?,?,?,?,?,?)')
-      .run(`tx_${Date.now()}`, req.user.id, 'deposit', wc.amount, 'Çark Kodu', 'completed', `Kod: ${wc.code}`);
+      .run(`tx_${Date.now()}`, req.user.id, 'deposit', wc.amount, 'Ã‡ark Kodu', 'completed', `Kod: ${wc.code}`);
   })();
 
   const wallet = db.prepare('SELECT balance FROM wallets WHERE user_id=?').get(req.user.id);
@@ -197,3 +197,4 @@ router.post('/redeem', authenticate, (req, res) => {
 });
 
 module.exports = router;
+
