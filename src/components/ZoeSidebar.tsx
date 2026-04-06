@@ -56,6 +56,11 @@ export function ZoeSidebar() {
       setLogoText(text.slice(0, mid))
       setLogoSub(text.slice(mid))
       setLogoUrl(s.site_logo_url || '')
+      // Apply favicon from settings
+      if ((s as any).favicon) {
+        const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement
+        if (link) link.href = (s as any).favicon
+      }
     })
   }, [])
 

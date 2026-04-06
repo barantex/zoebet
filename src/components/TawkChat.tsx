@@ -18,6 +18,18 @@ export function TawkChat() {
       s.charset = 'UTF-8'
       s.setAttribute('crossorigin', '*')
       document.head.appendChild(s)
+
+      // Update favicon if set
+      const faviconUrl = settings?.favicon_url
+      if (faviconUrl) {
+        let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement
+        if (!link) {
+          link = document.createElement('link')
+          link.rel = 'icon'
+          document.head.appendChild(link)
+        }
+        link.href = faviconUrl
+      }
     }).catch(() => {})
   }, [])
 
