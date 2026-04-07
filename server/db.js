@@ -113,13 +113,29 @@ try {
   }
 } catch {}
 
-// Wheel spins table
+// Staff table
 try {
-  db.exec(`CREATE TABLE IF NOT EXISTS wheel_spins (
+  db.exec(`CREATE TABLE IF NOT EXISTS staff (
     id TEXT PRIMARY KEY,
-    user_id TEXT NOT NULL,
-    slice_id TEXT NOT NULL,
-    amount REAL NOT NULL,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    permissions TEXT DEFAULT '[]',
+    active INTEGER DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+} catch {}
+
+// Staff permissions table
+try {
+  db.exec(`CREATE TABLE IF NOT EXISTS staff (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    name TEXT,
+    role TEXT DEFAULT 'staff',
+    permissions TEXT DEFAULT '[]',
+    active INTEGER DEFAULT 1,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
 } catch {}
@@ -129,3 +145,45 @@ try {
 // Ensure site_settings table exists for license text
 try { db.exec(`CREATE TABLE IF NOT EXISTS site_settings (key TEXT PRIMARY KEY, value TEXT)`); } catch {}
 
+
+// Staff/Personnel table
+try {
+  db.exec(`CREATE TABLE IF NOT EXISTS staff (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    name TEXT,
+    permissions TEXT DEFAULT '[]',
+    active INTEGER DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+} catch(e) {}
+
+// Staff permissions table
+try {
+  db.exec(`CREATE TABLE IF NOT EXISTS staff_permissions (
+    user_id TEXT PRIMARY KEY,
+    can_finance INTEGER DEFAULT 0,
+    can_users INTEGER DEFAULT 0,
+    can_games INTEGER DEFAULT 0,
+    can_matches INTEGER DEFAULT 0,
+    can_promotions INTEGER DEFAULT 0,
+    can_banners INTEGER DEFAULT 0,
+    can_wheel INTEGER DEFAULT 0,
+    can_settings INTEGER DEFAULT 0
+  )`);
+} catch {}
+
+// Staff/Personnel table
+try {
+  db.exec(`CREATE TABLE IF NOT EXISTS staff (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    name TEXT NOT NULL,
+    role TEXT DEFAULT 'staff',
+    permissions TEXT DEFAULT '[]',
+    active INTEGER DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+} catch {}

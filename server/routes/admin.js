@@ -139,6 +139,51 @@ router.post('/users/:id/verify', adminOnly, (req, res) => {
   res.json({ ok: true });
 });
 
+/* ── STAFF PERMISSIONS ── */
+router.get('/staff', adminOnly, (req, res) => {
+  const staff = db.prepare("SELECT u.id, u.email, u.name, u.surname, u.role, sp.* FROM users u LEFT JOIN staff_permissions sp ON sp.user_id=u.id WHERE u.role IN ('admin','staff') ORDER BY u.created_at DESC").all();
+  res.json({ staff });
+});
+
+router.post('/staff', adminOnly, (req, res) => {
+  const { email, password, name, surname } = req.body;
+  if (!email || !password) return res.status(400).json({ error: 'Email ve şifre zorunlu' });
+  const id = `staff_${Math.random().toString(16).slice(2)}`;
+  try {
+    db.prepare('INSERT INTO users (id,email,password,role,name,surname,verified) VALUES (?,?,?,?,?,?,1)')
+      .run(id, email.toLowerCase(), hashPassword(password), 'staff', name || '', surname || '');
+    db.prepare('INSERT INTO staff_permissions (user_id) VALUES (?)').run(id);
+    res.json({ ok: true, id });
+  } catch (e) {
+    if (e.code === 'SQLITE_CONSTRAINT_UNIQUE') return res.status(400).json({ error: 'Bu email zaten kayıtlı' });
+    res.status(500).json({ error: e.message });
+  }
+});
+
+router.patch('/staff/:id/permissions', adminOnly, (req, res) => {
+  const perms = req.body;
+  const existing = db.prepare('SELECT user_id FROM staff_permissions WHERE user_id=?').get(req.params.id);
+  if (existing) {
+    db.prepare(`UPDATE staff_permissions SET
+      can_finance=?, can_users=?, can_games=?, can_matches=?,
+      can_promotions=?, can_banners=?, can_wheel=?, can_settings=?
+      WHERE user_id=?`).run(
+      perms.can_finance?1:0, perms.can_users?1:0, perms.can_games?1:0, perms.can_matches?1:0,
+      perms.can_promotions?1:0, perms.can_banners?1:0, perms.can_wheel?1:0, perms.can_settings?1:0,
+      req.params.id
+    );
+  } else {
+    db.prepare(`INSERT INTO staff_permissions (user_id,can_finance,can_users,can_games,can_matches,can_promotions,can_banners,can_wheel,can_settings) VALUES (?,?,?,?,?,?,?,?,?)`)
+      .run(req.params.id, perms.can_finance?1:0, perms.can_users?1:0, perms.can_games?1:0, perms.can_matches?1:0, perms.can_promotions?1:0, perms.can_banners?1:0, perms.can_wheel?1:0, perms.can_settings?1:0);
+  }
+  res.json({ ok: true });
+});
+
+router.delete('/staff/:id', adminOnly, (req, res) => {
+  db.prepare('DELETE FROM users WHERE id=? AND role=?').run(req.params.id, 'staff');
+  res.json({ ok: true });
+});
+
 /* ── ADMIN PASSWORD CHANGE ── */
 router.post('/change-password', adminOnly, (req, res) => {
   const { current_password, new_password } = req.body;

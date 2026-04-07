@@ -23,7 +23,6 @@ const EXTRA: Item[] = [
 
 const HELP: Item[] = [
   { to: '/help/faq',         label: 'SSS',             icon: '❓' },
-  { to: '/help/support',     label: 'Canlı Destek',    icon: '💬' },
   { to: '/help/responsible', label: 'Sorumlu Bahis',   icon: '🛡️' },
 ]
 

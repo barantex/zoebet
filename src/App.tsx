@@ -13,6 +13,8 @@ import { AdminFinancePage } from './admin/AdminFinance'
 import { AdminWheelPage } from './admin/AdminWheel'
 import { AdminSettingsPage } from './admin/AdminSettings'
 import { AdminPasswordPage } from './admin/AdminPassword'
+import { AdminStaffPage } from './admin/AdminStaff'
+import { AdminStaffPage } from './admin/AdminStaff'
 import { AdminLoginPage } from './pages/AdminLogin'
 import { FinancePanelLoginPage } from './pages/FinancePanelLogin'
 import { FinancePanelPage } from './pages/FinancePanel'
@@ -72,6 +74,8 @@ function Boot() {
       >
         <Route index element={<AdminDashboardPage />} />
         <Route path="settings" element={<AdminSettingsPage />} />
+        <Route path="staff" element={<AdminStaffPage />} />
+        <Route path="staff" element={<AdminStaffPage />} />
         <Route path="users" element={<AdminUsersPage />} />
         <Route path="finance" element={<AdminFinancePage />} />
         <Route path="wheel" element={<AdminWheelPage />} />

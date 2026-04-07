@@ -4,6 +4,7 @@ import { useAuth } from '../auth/AuthContext'
 const NAV = [
   { to: '/admin',              label: '📊 Dashboard',     end: true },
   { to: '/admin/settings',     label: '⚙️ Site Ayarları',  end: false },
+  { to: '/admin/staff',        label: '👨‍💼 Personeller',   end: false },
   { to: '/admin/users',        label: '👥 Kullanıcılar',  end: false },
   { to: '/admin/finance',      label: '💰 Finans',         end: false },
   { to: '/admin/wheel',        label: '🎡 Çark Yönetimi',  end: false },

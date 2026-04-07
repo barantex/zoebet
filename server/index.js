@@ -21,8 +21,12 @@ app.use('/api/admin', require('./routes/admin'));
 app.use('/api/admin-finance', require('./routes/finance-admin'));
 app.use('/api/finance-panel', require('./routes/finance-panel'));
 app.use('/api/wheel', require('./routes/wheel'));
+app.use('/api/staff', require('./routes/staff'));
 app.use('/api/settings', require('./routes/settings'));
+app.use('/api/staff', require('./routes/staff'));
+app.use('/api/staff', require('./routes/staff'));
 app.use('/api/banners', require('./routes/banners'));
+app.use('/api/staff', require('./routes/staff'));
 
 // PRODUCTION: Serve static files AFTER API routes
 const distPath = path.join(__dirname, '../dist');
@@ -36,4 +40,5 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`[Server] BahisMosco API is running on port ${PORT}`);
 });
+
 
